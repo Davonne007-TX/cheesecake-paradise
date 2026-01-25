@@ -32,7 +32,9 @@ export default function Hero() {
         <button className="bg-[#FE7F9C] p-4 rounded-full text-white">
           Order for Delivery →
         </button>
-        <button className="bg-white p-4 rounded-full">View Full Menu</button>
+        <button className="bg-white text-pink-300 p-4 rounded-full">
+          View Full Menu
+        </button>
       </div>
     </section>
   );
