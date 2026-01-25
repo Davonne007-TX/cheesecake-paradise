@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans:
+    "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-nic: "Niconne", cursive;
+  --font-dm: "DM Serif Text", serif;
+}
+
+html,
+body {
+  background-color: antiquewhite;
+  background: linear-gradient(135deg, #fbeee6, #f7d9e3);
+}
