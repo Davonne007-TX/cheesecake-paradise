@@ -38,19 +38,20 @@ export default function OurStory() {
             <br /> flavor since 1993
           </h2>
           <p className="mt-2 text-gray-700 text-xl ">
-            Suspendisse volutpat gravida tristique. Nam tempor purus in erat
-            ultrices tincidunt. Sed commodo tellus nec nunc sodales interdum.
-            Donec condimentum, tellus at ullamcorper porttitor
+            What began with a mother and her daughters spending time together in
+            the kitchen making their favorite dessert, has grown into a family
+            owned business.
           </p>
           <p className="mt-2 text-gray-700 text-xl">
-            Suspendisse volutpat gravida tristique. Nam tempor purus in erat
-            ultrices tincidunt. Sed commodo tellus nec nunc sodales interdum.
-            Donec condimentum, tellus at ullamcorper porttitor
+            Every cheesecake is made from scratch in small batches. We have our
+            signature New York style, to seasonal creations. Our mission is to
+            give our customers a cheesecake experience that will always be
+            remembered.
           </p>
         </div>
         <section className="grid sm:grid-cols-2 gap-8">
           {features.map((feature) => (
-            <div className="flex flex-col justify-center gap-2 bg-[#FE7F9C]/60 p-4 rounded-xl">
+            <div className="flex flex-col justify-center gap-2 bg-[#FE7F9C]/60 p-6 rounded-xl">
               <feature.icon className="h-10 w-10 bg-white rounded-full p-2" />
               <h3 className="font-bold text-2xl">{feature.title}</h3>
               <p className="text-md">{feature.description}</p>

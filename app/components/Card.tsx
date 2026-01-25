@@ -14,22 +14,26 @@ export default function Card({
   description,
 }: CardProps) {
   return (
-    <section className="flex gap-6 items-start">
-      <div className="flex flex-col gap-4">
-        <img src={image} alt="" className="md:max-w-sm" />
+    <>
+      <section className="flex gap-6 items-start">
+        <div className="flex flex-col gap-4">
+          <img src={image} alt="" className="md:max-w-sm" />
 
-        <div className="p-4 flex flex-col gap-4">
-          <p className="md:text-sm font-bold">⭐ {rating}</p>
-          <div className="flex justify-between items-center gap-40">
-            <h3 className="font-nic text-4xl md:text-2xl">{cheeseCakeName}</h3>
-            <p className="font-bold text-[#FE7F9C]">{price}</p>
+          <div className="p-4 flex flex-col gap-4">
+            <p className="md:text-sm font-bold">⭐ {rating}</p>
+            <div className="flex justify-between items-center gap-40">
+              <h3 className="font-nic text-4xl md:text-2xl">
+                {cheeseCakeName}
+              </h3>
+              <p className="font-bold text-[#FE7F9C]">{price}</p>
+            </div>
+            <p>{description}</p>
+            <button className="bg-[#FE7F9C] font-bold p-4 text-white rounded leading-2">
+              + Add to Cart
+            </button>
           </div>
-          <p>{description}</p>
-          <button className="bg-[#FE7F9C] font-bold p-4 text-white rounded leading-2">
-            + Add to Cart
-          </button>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

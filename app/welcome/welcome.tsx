@@ -73,6 +73,10 @@ export function Welcome() {
             </div>
           ))}
         </div>
+
+        <button className="mt-8 border p-2 w-60 rounded-xl hover:bg-[#FE7F9C]/40 cursor-pointer border-gray-400">
+          View Full Menu
+        </button>
       </div>
     </main>
   );
