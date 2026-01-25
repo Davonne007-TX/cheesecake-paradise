@@ -1,27 +1,29 @@
+import { Clock2, Tractor, ThumbsUp, Van } from "lucide-react";
+
 export default function OurStory() {
   const features = [
     {
-      icon: "",
+      icon: Clock2,
       title: "Slow Baked",
       description:
         "Each cheesecake is slow baked for a signature creamy texture.",
     },
     {
-      icon: "",
+      icon: Tractor,
       title: "Fresh Ingredients",
       description:
         "We have the best cream cheese, fresh farm eggs in town and real vanilla.",
     },
     {
-      icon: "",
+      icon: ThumbsUp,
       title: "Custom Flavors",
       description: "Get the flavors you want. You want it. We got it.",
     },
     {
-      icon: "",
+      icon: Van,
       title: "Catering",
       description:
-        "Need to cater a party? We do catering and fast free delivery for our customers.",
+        "Need to cater a party? We do catering and fast free delivery.",
     },
   ];
   return (
@@ -31,22 +33,25 @@ export default function OurStory() {
           <span className="text-[#FE7F9C] font-semibold] text-2xl">
             OUR STORY
           </span>
-          <h2 className="font-bold text-5xl">Baked with flavor since 1993</h2>
-          <p className="mt-2 text-gray-700 text-lg ">
+          <h2 className="font-bold text-5xl">
+            Baked with
+            <br /> flavor since 1993
+          </h2>
+          <p className="mt-2 text-gray-700 text-xl ">
             Suspendisse volutpat gravida tristique. Nam tempor purus in erat
             ultrices tincidunt. Sed commodo tellus nec nunc sodales interdum.
             Donec condimentum, tellus at ullamcorper porttitor
           </p>
-          <p className="text-gray-700 text-lg">
+          <p className="mt-2 text-gray-700 text-xl">
             Suspendisse volutpat gravida tristique. Nam tempor purus in erat
             ultrices tincidunt. Sed commodo tellus nec nunc sodales interdum.
             Donec condimentum, tellus at ullamcorper porttitor
           </p>
         </div>
-        <section className="grid sm:grid-cols-2 gap-6">
+        <section className="grid sm:grid-cols-2 gap-8">
           {features.map((feature) => (
-            <div className="flex flex-col justify-center gap-2 bg-[#FE7F9C]/60 p-2 rounded-xl">
-              <div>{feature.icon}</div>
+            <div className="flex flex-col justify-center gap-2 bg-[#FE7F9C]/60 p-4 rounded-xl">
+              <feature.icon className="h-10 w-10 bg-white rounded-full p-2" />
               <h3 className="font-bold text-2xl">{feature.title}</h3>
               <p className="text-md">{feature.description}</p>
             </div>
