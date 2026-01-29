@@ -1,4 +1,4 @@
-import { Clock2, Tractor, ThumbsUp, Van } from "lucide-react";
+import { Clock2, Tractor, ThumbsUp, Truck } from "lucide-react";
 
 export default function OurStory() {
   const features = [
@@ -20,11 +20,12 @@ export default function OurStory() {
       id: 3,
       icon: ThumbsUp,
       title: "Custom Flavors",
-      description: "Get the flavors you want. You want it. We got it.",
+      description:
+        "Get the flavors you want. You want it. We got it. Simple and delicious.",
     },
     {
       id: 4,
-      icon: Van,
+      icon: Truck,
       title: "Catering",
       description:
         "Need to cater a party? We do catering and fast free delivery.",
@@ -60,7 +61,7 @@ export default function OurStory() {
               key={feature.id}
               className="flex flex-col justify-center gap-2 bg-[#FE7F9C]/60 p-6 rounded-xl"
             >
-              <feature.icon className="h-10 w-10 bg-white rounded-full p-2" />
+              <feature.icon className="h-10 w-10 bg-white rounded-full p-2 flex items-center justify-center" />
               <h3 className="font-bold text-2xl">{feature.title}</h3>
               <p className="text-md">{feature.description}</p>
             </div>

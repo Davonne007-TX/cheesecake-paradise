@@ -3,6 +3,7 @@ import { Welcome } from "../welcome/welcome";
 import Header from "~/components/Header";
 import Hero from "~/components/Hero";
 import OurStory from "~/components/OurStory";
+import Reviews from "~/components/Reviews";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -18,6 +19,7 @@ export default function Home() {
       <Header />
       <Welcome />
       <OurStory />
+      <Reviews />
     </main>
   );
 }
