@@ -33,11 +33,8 @@ export default function Reviews() {
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((testimonial) => (
-            <div className="mx-auto max-w-sm">
-              <div
-                className="bg-white shadow-md p-6 rounded-2xl max-w-xl md:max-w-sm flex flex-col"
-                key={testimonial.id}
-              >
+            <div className="mx-auto max-w-sm" key={testimonial.id}>
+              <div className="bg-white shadow-md p-6 rounded-2xl max-w-xl md:max-w-sm flex flex-col">
                 <Quote className="w-8 h-8 text-[#FE7F9C] mb-4" />
                 <p className="text-gray-700">"{testimonial.quote}"</p>
                 <div className="mt-6">
