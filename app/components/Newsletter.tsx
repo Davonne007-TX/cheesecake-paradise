@@ -22,14 +22,17 @@ export default function Newsletter() {
 
           <h2 className="text-5xl font-dm text-center">Slice of the cake</h2>
 
-          <p className="max-w-lg text-center text-lg">
+          <p className="max-w-md text-center text-lg">
             Subscribe to our newsletter for new flavors, specials, and of course
             a special treat for your birthday! Bonus for signing up, 20% off
             your first order.
           </p>
 
           {!isSubmitted ? (
-            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col md:flex-row gap-4"
+            >
               <input
                 type="email"
                 value={email}
@@ -41,7 +44,7 @@ export default function Newsletter() {
 
               <button
                 type="submit"
-                className="bg-white/60 cursor-pointer hover:scale-105 w-60 md:w-80 rounded-lg tracking-widest text-black p-2"
+                className="bg-white/60 cursor-pointer hover:scale-105 w-60 md:w-40 rounded-lg tracking-widest text-black p-2"
               >
                 Subscribe
               </button>
@@ -49,7 +52,7 @@ export default function Newsletter() {
           ) : (
             <>
               <button
-                className="text-center text-md md:text-lg font-semibold bg-white/20 rounded-sm cursor-pointer p-2 shadow-md"
+                className="text-center max-w-md text-md md:text-lg font-semibold bg-white/20 rounded-sm cursor-pointer p-2 shadow-md"
                 onClick={() => setIsSubmitted(false)}
               >
                 Thank you for subscribing! Check your inbox for your discount
@@ -58,7 +61,7 @@ export default function Newsletter() {
 
               <img
                 src="./images/cheesecake.webp"
-                className=" rounded-sm  max-w-xs md:max-w-lg"
+                className=" rounded-sm  max-w-xs md:max-w-md"
               />
             </>
           )}
