@@ -1,6 +1,4 @@
 import Card from "~/components/Card";
-import Header from "~/components/Header";
-import Hero from "~/components/Hero";
 
 const cheeseCake = [
   {
@@ -35,13 +33,7 @@ const cheeseCake = [
 export function Welcome() {
   return (
     <main className="flex flex-col min-h-screen items-center justify-center relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center -z-10">
-        <span className="text-[30vw] font-dm font-bold tracking-tight text-black/5 select-none">
-          Cake
-        </span>
-      </div>
-
-      <div className="flex flex-col gap-2 justify-center items-center mt-40">
+      <div className="flex flex-col gap-2 justify-center items-center md:mt-20">
         <p className="text-[#FE7F9C] text-lg font-serif text-center">
           OUR COLLECTION
         </p>
@@ -51,7 +43,7 @@ export function Welcome() {
             <h2 className="text-4xl sm:text-5xl md:text-6xl text-center font-nic mx-auto">
               Signature cheesecakes
             </h2>
-            <p className="text-gray-500 text-center text-lg mx-auto">
+            <p className="text-gray-500 text-center text-lg mx-auto max-w-xs">
               From our family to yours. Our cheesecake is made to perfection for
               all our customers. From classic favorites to the works. Get your
               cheesecake today!

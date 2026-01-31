@@ -1,28 +1,68 @@
 import { CakeSlice } from "lucide-react";
+import { useState } from "react";
 
 export default function Newsletter() {
+  const [email, setEmail] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!email) return;
+
+    setIsSubmitted(true);
+    setEmail("");
+  };
+
   return (
     <section className="bg-[#FE7F9C] text-white">
       <div className="max-w-3xl mx-auto p-20">
         <div className="flex flex-col gap-8 justify-center items-center">
           <CakeSlice className="w-10 h-10" />
+
           <h2 className="text-5xl font-dm text-center">Slice of the cake</h2>
-          <p className="max-w-md text-center text-md">
+
+          <p className="max-w-lg text-center text-lg">
             Subscribe to our newsletter for new flavors, specials, and of course
             a special treat for your birthday! Bonus for signing up, 20% off
-            your first order.{" "}
+            your first order.
           </p>
-          <div className="flex flex-col md:flex-row gap-8">
-            <input
-              type="text"
-              className="p-2 w-full text-center md:text-left  bg-white/20 rounded-sm "
-              placeholder="Enter your email"
-            />
 
-            <button className="bg-white/60 rounded-lg tracking-widest text-black w-60 p-2">
-              Subscribe 📨{" "}
-            </button>
-          </div>
+          {!isSubmitted ? (
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+              <input
+                type="email"
+                value={email}
+                placeholder="Enter Your Email"
+                className="p-2 bg-white/20 w-60 md:w-80 focus:outline-none"
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+
+              <button
+                type="submit"
+                className="bg-white/60 cursor-pointer hover:scale-105 w-60 md:w-80 rounded-lg tracking-widest text-black p-2"
+              >
+                Subscribe
+              </button>
+            </form>
+          ) : (
+            <>
+              <button
+                className="text-center text-md md:text-lg font-semibold bg-white/20 rounded-sm cursor-pointer p-2 shadow-md"
+                onClick={() => setIsSubmitted(false)}
+              >
+                Thank you for subscribing! Check your inbox for your discount
+                code!
+              </button>
+
+              <img
+                src="./images/cheesecake.webp"
+                className=" rounded-sm  max-w-xs md:max-w-lg"
+              />
+            </>
+          )}
+
           <p className="text-center max-w-md text-xs md:text-sm mb-2">
             Unsubscribe at anytime. We love our customers and your privacy.
           </p>

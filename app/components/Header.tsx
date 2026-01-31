@@ -7,7 +7,8 @@ export default function Header() {
   const nav = [
     { name: "Collection", id: 1 },
     { name: "Our Story", id: 2 },
-    { name: "Contact", id: 3 },
+    { name: "Catering", id: 3 },
+    { name: "Contact", id: 4 },
   ];
 
   return (
@@ -59,19 +60,19 @@ export default function Header() {
       {/* Mobile Nav */}
 
       {mobileNavOpen && (
-        <div className="flex flex-col gap-6 mt-6 p-6 bg-black/80 backdrop-blur-md md:hidden rounded-b-lg">
+        <div className="flex flex-col justify-center items-center gap-6 mt-6 p-6 bg-black/10 backdrop-blur-lg md:hidden rounded-b-lg">
           {nav.map((item) => (
             <ul key={item.id} className="font-dm font-thin">
               <li
                 onClick={() => setMobileNavOpen(false)}
-                className="relative cursor-pointer hover:bg-white p-2 text-xl hover:text-[#FE7F9C] text-white/80 w-40 rounded"
+                className="relative cursor-pointer text-center  hover:underline p-2 text-xl hover:text-[#FE7F9C] text-white/80 transition"
               >
                 {item.name}
                 <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#FE7F9C] transition-all duration-300 hover:w-full" />
               </li>
             </ul>
           ))}
-          <button className="rounded cursor-pointer bg-[#FE7F9C] text-lg tracking-wider w-40 p-2 hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
+          <button className="rounded cursor-pointer bg-[#FE7F9C] font-nic text-2xl tracking-wider w-60 p-2 hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
             Order Now
           </button>
         </div>
