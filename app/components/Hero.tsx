@@ -28,7 +28,7 @@ export default function Hero() {
         Family owned business making cheesecake. Made fresh daily, all natural
         ingredients, and recipes perfected over 30 years.
       </p>
-      <div className="flex gap-8 mx-auto mt-4">
+      <div className="flex gap-8 mx-auto my-10">
         <button className="bg-[#FE7F9C] p-4 rounded-full text-white">
           Order for Delivery →
         </button>

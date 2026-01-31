@@ -1,6 +1,9 @@
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, Menu, X } from "lucide-react";
+import { useState } from "react";
 
 export default function Header() {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+
   const nav = [
     { name: "Collection", id: 1 },
     { name: "Our Story", id: 2 },
@@ -18,7 +21,7 @@ export default function Header() {
           </h1>
         </div>
 
-        {/* Navigation */}
+        {/* Desktop */}
         <ul className="hidden md:flex gap-10 text-md font-medium mr-20">
           {nav.map((item) => (
             <li
@@ -31,7 +34,6 @@ export default function Header() {
           ))}
         </ul>
 
-        {/* Actions */}
         <div className="flex items-center gap-6">
           <button className="relative text-white/80 hover:text-white transition">
             <ShoppingCart className="h-8 w-8" />
@@ -41,11 +43,38 @@ export default function Header() {
             </span>
           </button>
 
-          <button className="rounded bg-[#FE7F9C] w-24 p-2 text-sm font-semibold cursor-progress  hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
+          <button className="hidden md:block rounded bg-[#FE7F9C] w-24 p-2 text-sm font-semibold cursor-progress  hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
             Order Now
+          </button>
+
+          <button
+            onClick={() => setMobileNavOpen(!mobileNavOpen)}
+            className="md:hidden focus:outline-none cursor-pointer"
+          >
+            {mobileNavOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
+
+      {/* Mobile Nav */}
+
+      {mobileNavOpen && (
+        <div>
+          {nav.map((item) => (
+            <li
+              key={item.id}
+              onClick={() => setMobileNavOpen(false)}
+              className="relative cursor-pointer text-white/80 hover:text-white transition"
+            >
+              {item.name}
+              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#FE7F9C] transition-all duration-300 hover:w-full" />
+            </li>
+          ))}
+          <button className="rounded bg-[#FE7F9C] w-40 p-2 text-sm font-semibold hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
+            Order Now
+          </button>
+        </div>
+      )}
     </header>
   );
 }
