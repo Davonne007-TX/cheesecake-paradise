@@ -6,16 +6,16 @@ export default function Newsletter() {
       <div className="max-w-3xl mx-auto p-20">
         <div className="flex flex-col gap-8 justify-center items-center">
           <CakeSlice className="w-10 h-10" />
-          <h2 className="text-5xl font-dm">Slice of the cake</h2>
+          <h2 className="text-5xl font-dm text-center">Slice of the cake</h2>
           <p className="max-w-md text-center text-md">
             Subscribe to our news letter for new flavors, specials, and of
             course a special treat for your birthday! Bonus for signing up, 20%
             off your first order.{" "}
           </p>
-          <div className="flex gap-8">
+          <div className="flex flex-col md:flex-row gap-8">
             <input
               type="text"
-              className="p-2 w-full bg-white/20 rounded-sm "
+              className="p-2 w-full text-center md:text-left  bg-white/20 rounded-sm "
               placeholder="Enter your email"
             />
 
@@ -23,7 +23,7 @@ export default function Newsletter() {
               Subscribe 📨{" "}
             </button>
           </div>
-          <p className="text-center max-w-md text-sm mb-2">
+          <p className="text-center max-w-md text-xs md:text-sm mb-2">
             Unsubscribe at anytime. We love our customers and your privacy.
           </p>
         </div>
