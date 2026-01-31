@@ -51,7 +51,7 @@ export default function Header() {
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
             className="md:hidden focus:outline-none cursor-pointer"
           >
-            {mobileNavOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileNavOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
@@ -59,18 +59,19 @@ export default function Header() {
       {/* Mobile Nav */}
 
       {mobileNavOpen && (
-        <div>
+        <div className="flex flex-col gap-6 mt-6 p-6 bg-black/80 backdrop-blur-md md:hidden rounded-b-lg">
           {nav.map((item) => (
-            <li
-              key={item.id}
-              onClick={() => setMobileNavOpen(false)}
-              className="relative cursor-pointer text-white/80 hover:text-white transition"
-            >
-              {item.name}
-              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#FE7F9C] transition-all duration-300 hover:w-full" />
-            </li>
+            <ul key={item.id} className="font-dm font-thin">
+              <li
+                onClick={() => setMobileNavOpen(false)}
+                className="relative cursor-pointer hover:bg-white p-2 text-xl hover:text-[#FE7F9C] text-white/80 w-40 rounded"
+              >
+                {item.name}
+                <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#FE7F9C] transition-all duration-300 hover:w-full" />
+              </li>
+            </ul>
           ))}
-          <button className="rounded bg-[#FE7F9C] w-40 p-2 text-sm font-semibold hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
+          <button className="rounded cursor-pointer bg-[#FE7F9C] text-lg tracking-wider w-40 p-2 hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
             Order Now
           </button>
         </div>

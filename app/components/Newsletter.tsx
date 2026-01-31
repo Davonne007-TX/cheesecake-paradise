@@ -8,9 +8,9 @@ export default function Newsletter() {
           <CakeSlice className="w-10 h-10" />
           <h2 className="text-5xl font-dm text-center">Slice of the cake</h2>
           <p className="max-w-md text-center text-md">
-            Subscribe to our news letter for new flavors, specials, and of
-            course a special treat for your birthday! Bonus for signing up, 20%
-            off your first order.{" "}
+            Subscribe to our newsletter for new flavors, specials, and of course
+            a special treat for your birthday! Bonus for signing up, 20% off
+            your first order.{" "}
           </p>
           <div className="flex flex-col md:flex-row gap-8">
             <input

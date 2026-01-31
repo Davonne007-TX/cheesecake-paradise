@@ -26,13 +26,13 @@ export default function Reviews() {
   ];
 
   return (
-    <section className="py-24 px-4 bg-[#FFF7F9]">
+    <section className="py-40 px-4 bg-[#FFF7F9]">
       <div className="max-w-6xl mx-auto">
         <p className="text-[#FE7F9C] tracking-widest text-sm text-center mb-3">
           TESTIMONIALS
         </p>
 
-        <h2 className="font-nic text-5xl md:text-6xl text-center mb-16">
+        <h2 className="font-nic text-4xl sm:text-5xl md:text-6xl text-center mb-16">
           What our customers say
         </h2>
 

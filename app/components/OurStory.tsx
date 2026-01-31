@@ -35,11 +35,11 @@ export default function OurStory() {
   return (
     <section className="mt-20 bg-white min-h-screen mx-auto flex flex-col justify-center items-center">
       <div className="flex flex-col md:flex-row gap-20 justify-center items-center p-8 max-w-7xl">
-        <div className="flex flex-col gap-4 max-w-xl">
+        <div className="flex flex-col gap-4 max-w-xl mt-20 md:mt-0">
           <span className="text-[#FE7F9C] font-semibold] text-2xl">
             OUR STORY
           </span>
-          <h2 className="font-bold text-5xl">
+          <h2 className="font-bold text-4xl sm:text-5xl md:text-6xl">
             Baked with
             <br /> flavor since 1993
           </h2>

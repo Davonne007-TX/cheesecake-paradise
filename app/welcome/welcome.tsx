@@ -48,7 +48,9 @@ export function Welcome() {
 
         <div className="max-w-2xl">
           <div className="flex flex-col gap-4 justify-center items-center">
-            <h2 className="text-6xl font-nic mx-auto">Signature cheesecakes</h2>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl text-center font-nic mx-auto">
+              Signature cheesecakes
+            </h2>
             <p className="text-gray-500 text-center text-lg mx-auto">
               From our family to yours. Our cheesecake is made to perfection for
               all our customers. From classic favorites to the works. Get your
