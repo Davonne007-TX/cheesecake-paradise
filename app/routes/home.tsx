@@ -4,6 +4,7 @@ import Header from "~/components/Header";
 import Hero from "~/components/Hero";
 import OurStory from "~/components/OurStory";
 import Reviews from "~/components/Reviews";
+import Newsletter from "~/components/Newsletter";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -20,6 +21,7 @@ export default function Home() {
       <Welcome />
       <OurStory />
       <Reviews />
+      <Newsletter />
     </main>
   );
 }
