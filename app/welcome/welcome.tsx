@@ -8,7 +8,8 @@ const cheeseCake = [
     description:
       "A rich and creamy cheesecake with a smooth vanilla filling topped with a sweet layer of cherries on a graham cracker crust.",
     rating: 4.9,
-    image: "/images/cherry.jpg",
+    image: "/images/cherry.webp",
+    alt: "Cherry Classic Cheesecake, image by Kalisha Ocheni on Unsplash",
   },
   {
     id: 2,
@@ -17,7 +18,8 @@ const cheeseCake = [
     description:
       "Your classic favorite cheesecake. A rich, smooth, velvety texture on a buttery graham cracker crust.",
     rating: 5.0,
-    image: "/images/classic.jpg",
+    image: "/images/classic.webp",
+    alt: "Classic New York Style Cheesecake, image by Tina Guina on Unsplash",
   },
   {
     id: 3,
@@ -26,7 +28,8 @@ const cheeseCake = [
     description:
       "Flavor in every bite with our blueberry topped cheesecake. Smooth, elegant, delicious on a graham cracker crust.",
     rating: 4.8,
-    image: "/images/blueberry.jpg",
+    image: "/images/blueberry.webp",
+    alt: "Blueberry Classic Cheesecake, image by Mink Mingle on Unsplash",
   },
 ];
 
@@ -60,6 +63,7 @@ export function Welcome() {
               <Card
                 rating={cake.rating}
                 image={cake.image}
+                alt={cake.alt}
                 price={`$${cake.price.toFixed(2)}`}
                 cheeseCakeName={cake.name}
                 description={cake.description}

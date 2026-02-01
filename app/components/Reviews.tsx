@@ -36,12 +36,12 @@ export default function Reviews() {
           What our customers say
         </h2>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 lg:grid-cols-3">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
               className="bg-white rounded-3xl p-8 shadow-sm ring-1 ring-gray-100 
-                         hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                         hover:shadow-lg hover:-translate-y-1"
             >
               <Quote className="w-8 h-8 text-[#FE7F9C] mb-6" />
               <div className="flex gap-1 mb-4">

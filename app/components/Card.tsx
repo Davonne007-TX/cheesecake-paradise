@@ -1,5 +1,6 @@
 interface CardProps {
   image: string;
+  alt: string;
   rating: number;
   cheeseCakeName: string;
   price: string | number;
@@ -10,6 +11,7 @@ export default function Card({
   image,
   cheeseCakeName,
   price,
+  alt,
   rating,
   description,
 }: CardProps) {
@@ -17,7 +19,7 @@ export default function Card({
     <>
       <section className="flex gap-6 items-start">
         <div className="flex flex-col gap-4">
-          <img src={image} alt="" className="md:max-w-sm" />
+          <img src={image} alt={alt} loading="lazy" className="md:max-w-sm" />
 
           <div className="p-4 flex flex-col gap-4">
             <p className="md:text-sm font-bold">⭐ {rating}</p>
