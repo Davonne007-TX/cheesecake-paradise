@@ -8,6 +8,7 @@ import {
   Instagram,
 } from "lucide-react";
 import OurLinks from "./OurLinks";
+import TermsOfService from "./TermsOfService";
 
 export default function () {
   return (
@@ -40,13 +41,14 @@ export default function () {
 
           <div className="flex gap-4 mt-4">
             {" "}
-            <Facebook className="w-10 h-10 rounded-full bg-white/40 p-2" />
-            <Twitter className="w-10 h-10 rounded-full bg-white/40 p-2" />
-            <Instagram className="w-10 h-10 rounded-full bg-white/40 p-2" />
+            <Facebook className="w-8 h-8 rounded-full bg-white/40 p-1 hover:bg-white hover:text-[#FE7F9C] transition cursor-pointer" />
+            <Twitter className="w-8 h-8 rounded-full bg-white/40 p-1  hover:bg-white  hover:text-[#FE7F9C] transition cursor-pointer" />
+            <Instagram className="w-8 h-8 rounded-full bg-white/40 p-1  hover:bg-white  hover:text-[#FE7F9C] transition cursor-pointer" />
           </div>
         </div>
         <OurLinks />
       </div>
+      <TermsOfService />
     </footer>
   );
 }

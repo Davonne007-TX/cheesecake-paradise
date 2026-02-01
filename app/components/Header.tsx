@@ -5,10 +5,9 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const nav = [
-    { name: "Collection", id: 1 },
-    { name: "Our Story", id: 2 },
-    { name: "Catering", id: 3 },
-    { name: "Contact", id: 4 },
+    { name: "Our Story", id: 1 },
+    { name: "Collection", id: 2 },
+    { name: "Contact", id: 3 },
   ];
 
   return (
