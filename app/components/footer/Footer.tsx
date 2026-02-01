@@ -11,6 +11,12 @@ import OurLinks from "./OurLinks";
 import TermsOfService from "./TermsOfService";
 
 export default function () {
+  const ourInfo = [
+    { name: "2318 Sully Lane, Forks WA 90210", icon: MapPinned, id: 0 },
+    { name: "987-654-321", icon: PhoneCall, id: 1 },
+    { name: "velvetGoodness@aol.com", icon: Mail, id: 2 },
+  ];
+
   return (
     <footer className="bg-black/80 backdrop-blur-md p-12 text-white border-t border-white/10">
       <div className="flex flex-col md:flex-row md:justify-between gap-12 max-w-6xl mx-auto">
@@ -25,18 +31,13 @@ export default function () {
             one velvet slice at a time.
           </p>
 
-          <div className="flex items-center gap-4 mt-4">
-            <MapPinned className="w-4 h-4" />
-            <p>2318 Sully Lane, Forks WA 90210</p>
-          </div>
-
-          <div className="flex items-center gap-4">
-            <PhoneCall className="w-4 h-4" />
-            <span>987-654-321</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <Mail className="w-4 h-4" />
-            <p>velvetGoodness@aol.com</p>
+          <div className="mt-4 flex flex-col gap-4">
+            {ourInfo.map((info) => (
+              <ul key={info.id} className="flex items-center gap-4">
+                <info.icon className="h-4 w-4" />
+                <li>{info.name}</li>
+              </ul>
+            ))}
           </div>
 
           <div className="flex gap-4 mt-4">

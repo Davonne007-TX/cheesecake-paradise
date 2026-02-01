@@ -13,7 +13,7 @@ export default function OurLinks() {
     { name: "FAQS", id: 3 },
   ];
   return (
-    <section className="flex flex-col md:flex-row gap-20">
+    <section className="flex flex-col md:flex-row gap-20 mt-4">
       <div className="flex flex-col gap-4">
         <p className="font-bold font-dm text-lg">Collection</p>
         {collection.map((cheesecakes) => (
@@ -25,7 +25,7 @@ export default function OurLinks() {
         ))}
       </div>
       <div className="flex flex-col gap-4">
-        <p className="font-bold font-dm text-lg">Collection</p>
+        <p className="font-bold font-dm text-lg">Business</p>
         {company.map((info) => (
           <ul key={info.id}>
             <li className=" text-white/80 cursor-pointer hover:text-white transition">
