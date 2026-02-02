@@ -4,16 +4,25 @@ import { useState } from "react";
 interface NavItem {
   id: number;
   name: string;
+  sectionId: string;
 }
 
 export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
 
   const nav: NavItem[] = [
-    { name: "Our Story", id: 1 },
-    { name: "Collection", id: 2 },
-    { name: "Contact", id: 3 },
+    { name: "Our Story", id: 1, sectionId: "story" },
+    { name: "Collection", id: 2, sectionId: "collection" },
+    { name: "Contact", id: 3, sectionId: "contact" },
   ];
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-white/10">
@@ -37,6 +46,7 @@ export default function Header() {
             <li
               key={item.id}
               className="relative cursor-pointer text-white/80 hover:text-white transition"
+              onClick={() => scrollToSection(item.sectionId)}
             >
               {item.name}
               <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#FE7F9C] transition-all duration-300 hover:w-full" />
@@ -73,7 +83,10 @@ export default function Header() {
           {nav.map((item) => (
             <ul key={item.id} className="font-dm font-thin">
               <li
-                onClick={() => setMobileNavOpen(false)}
+                onClick={() => {
+                  scrollToSection(item.sectionId);
+                  setMobileNavOpen(false);
+                }}
                 className="relative cursor-pointer text-center  hover:underline p-2 text-xl hover:text-[#FE7F9C] text-white/80 transition"
               >
                 {item.name}

@@ -35,7 +35,10 @@ const cheeseCake = [
 
 export function Welcome() {
   return (
-    <main className="flex flex-col min-h-screen items-center justify-center relative overflow-hidden">
+    <main
+      id="collection"
+      className="flex flex-col min-h-screen items-center justify-center relative overflow-hidden"
+    >
       <div className="flex flex-col gap-2 justify-center items-center md:mt-20">
         <p className="text-[#FE7F9C] text-lg font-serif text-center">
           OUR COLLECTION

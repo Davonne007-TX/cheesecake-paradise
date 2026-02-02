@@ -16,7 +16,7 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="bg-[#FE7F9C] text-white">
+    <section id="contact" className="bg-[#FE7F9C] text-white">
       <div className="max-w-3xl mx-auto p-20">
         <div className="flex flex-col gap-8 justify-center items-center">
           <CakeSlice className="w-10 h-10" />
