@@ -30,15 +30,15 @@ export default function Hero() {
         Family owned business making cheesecake. Made fresh daily, all natural
         ingredients, and recipes perfected over 30 years.
       </p>
-      <div className="flex flex-col md:flex-row gap-8 mx-auto my-10">
-        <button className="bg-[#FE7F9C] p-4 rounded-full text-white">
+      <div className="flex flex-col md:flex-row gap-8 mx-auto my-4">
+        <button className="bg-[#FE7F9C] p-3 rounded-full text-white">
           Order for Delivery →
         </button>
-        <button className="bg-white text-pink-300 p-4 rounded-full">
+        <button className="bg-white text-pink-300 p-3 rounded-full">
           View Full Menu
         </button>
       </div>
-      <div className="flex justify-center my-10">
+      <div className="flex justify-center my-8">
         <div className="h-0.5 w-60 md:w-90  bg-[#FE7F9C]/20"></div>
       </div>
     </section>

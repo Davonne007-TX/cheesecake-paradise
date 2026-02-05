@@ -1,4 +1,5 @@
 import { Clock2, Tractor, ThumbsUp, Truck } from "lucide-react";
+import { motion, useInView } from "motion/react";
 
 export default function OurStory() {
   const features = [
@@ -37,7 +38,13 @@ export default function OurStory() {
       id="story"
       className="mt-20 bg-white min-h-screen mx-auto flex flex-col justify-center items-center"
     >
-      <div className="flex flex-col lg:flex-row gap-20 justify-center items-center p-8 max-w-7xl">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.6 }}
+        className="flex flex-col lg:flex-row gap-20 justify-center items-center p-8 max-w-7xl"
+      >
         <div className="flex flex-col gap-4 max-w-xl mt-20 md:mt-0">
           <span className="text-[#FE7F9C] font-semibold] text-2xl">
             OUR STORY
@@ -70,7 +77,7 @@ export default function OurStory() {
             </div>
           ))}
         </section>
-      </div>
+      </motion.div>
     </section>
   );
 }

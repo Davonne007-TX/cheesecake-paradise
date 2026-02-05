@@ -1,4 +1,5 @@
 import { Quote, Star } from "lucide-react";
+import { motion } from "motion/react";
 
 export default function Reviews() {
   const testimonials = [
@@ -37,9 +38,13 @@ export default function Reviews() {
         </h2>
 
         <div className="grid gap-8 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
-            <div
+          {testimonials.map((testimonial, index) => (
+            <motion.div
               key={testimonial.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.6, delay: index * 0.4 }}
               className="bg-white rounded-3xl p-8 shadow-sm ring-1 ring-gray-100 
                          hover:shadow-lg hover:-translate-y-1"
             >
@@ -60,7 +65,7 @@ export default function Reviews() {
                 <p className="font-semibold">{testimonial.author}</p>
                 <p className="text-sm text-gray-500">{testimonial.role}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -11,8 +11,8 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
 
   const nav: NavItem[] = [
-    { name: "Our Story", id: 1, sectionId: "story" },
-    { name: "Collection", id: 2, sectionId: "collection" },
+    { name: "Collection", id: 1, sectionId: "collection" },
+    { name: "Our Story", id: 2, sectionId: "story" },
     { name: "Contact", id: 3, sectionId: "contact" },
   ];
 
@@ -34,7 +34,10 @@ export default function Header() {
             loading="lazy"
             className="w-8"
           />
-          <h1 className="font-nic text-4xl tracking-wide">
+          <h1
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="font-nic text-4xl tracking-wide cursor-pointer"
+          >
             Velvet
             <span className="text-[#FE7F9C]"> Goodness</span>
           </h1>
@@ -63,7 +66,7 @@ export default function Header() {
             </span>
           </button>
 
-          <button className="hidden md:block rounded bg-[#FE7F9C] w-24 p-2 text-sm font-semibold cursor-progress  hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
+          <button className="hidden md:block rounded bg-[#FE7F9C] w-24 p-2 text-sm font-semibold cursor-pointer  hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
             Order Now
           </button>
 
