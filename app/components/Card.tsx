@@ -31,9 +31,10 @@ export default function Card({
             </div>
             <p>{description}</p>
             <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[#FE7F9C] cursor-pointer font-bold p-4 text-white rounded leading-2"
+              whileHover={{
+                scale: 1.03,
+              }}
+              className="bg-[#FE7F9C] w-full md:mx-auto  cursor-pointer font-bold p-4 text-white rounded leading-2"
             >
               + Add to Cart
             </motion.div>
