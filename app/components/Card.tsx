@@ -24,9 +24,7 @@ export default function Card({
           <div className="p-4 flex flex-col gap-4">
             <p className="md:text-sm font-bold">⭐ {rating}</p>
             <div className="flex justify-between items-center gap-40">
-              <h3 className="font-nic text-4xl md:text-2xl">
-                {cheeseCakeName}
-              </h3>
+              <h3 className="font-dm text-2xl md:text-xl">{cheeseCakeName}</h3>
               <p className="font-bold text-[#FE7F9C]">{price}</p>
             </div>
             <p>{description}</p>

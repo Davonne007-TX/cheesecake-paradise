@@ -13,7 +13,7 @@ const cheeseCake = [
   },
   {
     id: 2,
-    name: "Classic Favorite",
+    name: "NY Style",
     price: 30,
     description:
       "Your classic favorite cheesecake. A rich, smooth, velvety texture on a buttery graham cracker crust.",
@@ -37,7 +37,7 @@ export function Welcome() {
   return (
     <main
       id="collection"
-      className="flex flex-col min-h-screen items-center justify-center relative overflow-hidden"
+      className="flex flex-col min-h-screen items-center justify-center relative overflow-hidden scroll-mt-40"
     >
       <div className="flex flex-col gap-2 justify-center items-center md:mt-20">
         <p className="text-[#FE7F9C] text-lg font-serif text-center">

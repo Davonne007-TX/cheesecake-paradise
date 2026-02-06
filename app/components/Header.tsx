@@ -13,7 +13,8 @@ export default function Header() {
   const nav: NavItem[] = [
     { name: "Collection", id: 1, sectionId: "collection" },
     { name: "Our Story", id: 2, sectionId: "story" },
-    { name: "Contact", id: 3, sectionId: "contact" },
+    { name: "Reviews", id: 3, sectionId: "reviews" },
+    { name: "Contact", id: 4, sectionId: "contact" },
   ];
 
   const scrollToSection = (sectionId: string) => {
