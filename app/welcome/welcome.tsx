@@ -1,39 +1,9 @@
+import { useState, type Key } from "react";
 import Card from "~/components/Card";
-
-const cheeseCake = [
-  {
-    id: 1,
-    name: "Classic Cherry",
-    price: 20,
-    description:
-      "A rich and creamy cheesecake with a smooth vanilla filling topped with a sweet layer of cherries on a graham cracker crust.",
-    rating: 4.9,
-    image: "/images/cherry.webp",
-    alt: "Cherry Classic Cheesecake, image by Kalisha Ocheni on Unsplash",
-  },
-  {
-    id: 2,
-    name: "NY Style",
-    price: 30,
-    description:
-      "Your classic favorite cheesecake. A rich, smooth, velvety texture on a buttery graham cracker crust.",
-    rating: 5.0,
-    image: "/images/classic.webp",
-    alt: "Classic New York Style Cheesecake, image by Tina Guina on Unsplash",
-  },
-  {
-    id: 3,
-    name: "Berry Delight",
-    price: 32,
-    description:
-      "Flavor in every bite with our blueberry topped cheesecake. Smooth, elegant, delicious on a graham cracker crust.",
-    rating: 4.8,
-    image: "/images/blueberry.webp",
-    alt: "Blueberry Classic Cheesecake, image by Mink Mingle on Unsplash",
-  },
-];
+import { useCheesecakeItems } from "~/context/OurCheesecake";
 
 export function Welcome() {
+  const { cheesecakeItem, loading, error } = useCheesecakeItems();
   return (
     <main
       id="collection"
@@ -58,21 +28,36 @@ export function Welcome() {
         </div>
 
         <div className="flex flex-col md:flex-row gap-10 mt-12">
-          {cheeseCake.map((cake) => (
-            <div
-              key={cake.id}
-              className="bg-amber-50 max-w-xl md:max-w-sm h-full rounded-2xl"
-            >
-              <Card
-                rating={cake.rating}
-                image={cake.image}
-                alt={cake.alt}
-                price={`$${cake.price.toFixed(2)}`}
-                cheeseCakeName={cake.name}
-                description={cake.description}
-              />
-            </div>
-          ))}
+          {cheesecakeItem.map(
+            (cake: {
+              id: Key | null | undefined;
+              rating: number;
+              image: string;
+              alt: string;
+              price: number;
+              name: string;
+              description: string;
+            }) => {
+              return (
+                <div
+                  key={cake.id}
+                  className="bg-amber-50 max-w-xl md:max-w-sm h-full rounded-2xl"
+                >
+                  {loading && <p>Loading...</p>}
+                  {error && <p>{error}</p>}
+                  <Card
+                    key={cake.id}
+                    rating={cake.rating}
+                    image={cake.image}
+                    alt={cake.alt}
+                    price={`$${cake.price.toFixed(2)}`}
+                    cheeseCakeName={cake.name}
+                    description={cake.description}
+                  />
+                </div>
+              );
+            },
+          )}
         </div>
 
         <button className="mt-8 border p-2 w-60 rounded-xl hover:bg-[#FE7F9C]/40 cursor-pointer border-gray-400">

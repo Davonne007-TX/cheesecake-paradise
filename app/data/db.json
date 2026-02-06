@@ -1,0 +1,31 @@
+{
+  "cheesecake": [
+    {
+      "id": 1,
+      "name": "Classic Cherry",
+      "price": 20,
+      "description": "A rich and creamy cheesecake with a smooth vanilla filling topped with a sweet layer of cherries on a graham cracker crust.",
+      "rating": 4.9,
+      "image": "/images/cherry.webp",
+      "alt": "Cherry Classic Cheesecake, image by Kalisha Ocheni on Unsplash"
+    },
+    {
+      "id": 2,
+      "name": "NY Style",
+      "price": 30,
+      "description": "Your classic favorite cheesecake. A rich, smooth, velvety texture on a buttery graham cracker crust.",
+      "rating": 5.0,
+      "image": "/images/classic.webp",
+      "alt": "Classic New York Style Cheesecake, image by Tina Guina on Unsplash"
+    },
+    {
+      "id": 3,
+      "name": "Berry Delight",
+      "price": 32,
+      "description": "Flavor in every bite with our blueberry topped cheesecake. Smooth, elegant, delicious on a graham cracker crust.",
+      "rating": 4.8,
+      "image": "/images/blueberry.webp",
+      "alt": "Blueberry Classic Cheesecake, image by Mink Mingle on Unsplash"
+    }
+  ]
+}
