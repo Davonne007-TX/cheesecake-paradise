@@ -1,8 +1,21 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from "react";
 
-const CheesecakeContext = createContext();
+const CheesecakeContext = createContext<
+  | {
+      cheesecakeItem: any[];
+      loading: boolean;
+      fetchError: string | null;
+    }
+  | undefined
+>(undefined);
 
-export function OurCheeseCakeContext({ children }) {
+export function OurCheeseCakeContext({ children }: { children: ReactNode }) {
   const [cheesecakeItem, setCheesecakeItem] = useState([]);
   const [loading, setLoading] = useState(true);
   const [fetchError, setFetchError] = useState<string | null>(null);

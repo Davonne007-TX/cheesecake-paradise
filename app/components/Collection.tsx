@@ -1,9 +1,8 @@
-import { useState, type Key } from "react";
 import Card from "~/components/Card";
 import { useCheesecakeItems } from "~/context/OurCheesecake";
 
-export function Welcome() {
-  const { cheesecakeItem, loading, error } = useCheesecakeItems();
+export function Collection() {
+  const { cheesecakeItem, loading, fetchError } = useCheesecakeItems();
   return (
     <main
       id="collection"
@@ -44,7 +43,7 @@ export function Welcome() {
                   className="bg-amber-50 max-w-xl md:max-w-sm h-full rounded-2xl"
                 >
                   {loading && <p>Loading...</p>}
-                  {error && <p>{error}</p>}
+                  {fetchError && <p>{fetchError}</p>}
                   <Card
                     key={cake.id}
                     rating={cake.rating}
@@ -52,6 +51,7 @@ export function Welcome() {
                     alt={cake.alt}
                     price={`$${cake.price.toFixed(2)}`}
                     cheeseCakeName={cake.name}
+                    cheeseCakeItem={cake.id as number}
                     description={cake.description}
                   />
                 </div>

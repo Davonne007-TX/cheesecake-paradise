@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { useCart } from "~/context/CartContext";
 
 interface CardProps {
   image: string;
@@ -7,6 +8,7 @@ interface CardProps {
   cheeseCakeName: string;
   price: string | number;
   description: string;
+  cheeseCakeItem: string | number;
 }
 
 export default function Card({
@@ -15,11 +17,21 @@ export default function Card({
   price,
   alt,
   rating,
+  cheeseCakeItem,
   description,
 }: CardProps) {
+  const { addToCart } = useCart();
+
+  const product = {
+    id: String(cheeseCakeItem),
+    name: cheeseCakeName,
+    price: Number(price),
+    description: description,
+  };
+
   return (
-    <>
-      <section className="flex gap-6 items-start">
+    <section>
+      <div className="flex gap-6 items-start">
         <div className="flex flex-col gap-4">
           <img src={image} alt={alt} loading="lazy" className="md:max-w-sm" />
 
@@ -34,13 +46,17 @@ export default function Card({
               whileHover={{
                 scale: 1.03,
               }}
+              onClick={() => {
+                console.log("Added to cart:", product);
+                addToCart(product);
+              }}
               className="bg-[#FE7F9C] w-full md:mx-auto  cursor-pointer font-bold p-4 text-white rounded leading-2"
             >
               + Add to Cart
             </motion.div>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }

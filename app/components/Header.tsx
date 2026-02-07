@@ -1,4 +1,5 @@
 import { ShoppingCart, Menu, X } from "lucide-react";
+import { useCart } from "~/context/CartContext";
 import { useState } from "react";
 
 interface NavItem {
@@ -9,6 +10,9 @@ interface NavItem {
 
 export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState<boolean>(false);
+
+  const { cart } = useCart();
+  const itemCount = cart.reduce((acc, product) => acc + product.qty, 0);
 
   const nav: NavItem[] = [
     { name: "Collection", id: 1, sectionId: "collection" },
@@ -52,7 +56,7 @@ export default function Header() {
               className="relative cursor-pointer text-white/80 hover:text-white transition"
               onClick={() => scrollToSection(item.sectionId)}
             >
-              {item.name}
+              {item.name}3
               <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-[#FE7F9C] transition-all duration-300 hover:w-full" />
             </li>
           ))}
@@ -62,9 +66,12 @@ export default function Header() {
           <button className="relative text-white/80 hover:text-white transition">
             <ShoppingCart className="h-8 w-8" />
 
-            <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FE7F9C] text-[10px] flex items-center justify-center">
-              2
-            </span>
+            {/* show this, if the item count is greater than 0 */}
+            {itemCount > 0 && (
+              <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FE7F9C] text-[10px] flex items-center justify-center">
+                {itemCount}
+              </span>
+            )}
           </button>
 
           <button className="hidden md:block rounded bg-[#FE7F9C] w-24 p-2 text-sm font-semibold cursor-pointer  hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
@@ -81,7 +88,6 @@ export default function Header() {
       </div>
 
       {/* Mobile Nav */}
-
       {mobileNavOpen && (
         <div className="flex flex-col justify-center items-center gap-6 mt-6 p-6 bg-black/10 backdrop-blur-lg md:hidden rounded-b-lg">
           {nav.map((item) => (
