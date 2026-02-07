@@ -1,4 +1,3 @@
-import { useState, type Key } from "react";
 import Card from "~/components/Card";
 import { useCheesecakeItems } from "~/context/OurCheesecake";
 
@@ -52,6 +51,7 @@ export function Collection() {
                     alt={cake.alt}
                     price={`$${cake.price.toFixed(2)}`}
                     cheeseCakeName={cake.name}
+                    cheeseCakeItem={cake.id as number}
                     description={cake.description}
                   />
                 </div>
