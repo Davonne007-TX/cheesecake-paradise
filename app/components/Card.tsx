@@ -23,7 +23,7 @@ export default function Card({
   const { addToCart } = useCart();
 
   const product = {
-    id: cheeseCakeItem,
+    id: String(cheeseCakeItem),
     name: cheeseCakeName,
     price: Number(price),
     description: description,
