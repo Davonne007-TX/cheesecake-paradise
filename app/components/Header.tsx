@@ -12,7 +12,7 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const { cart } = useCart();
+  const { cart, deleteFromCart } = useCart();
 
   // Total items in cart (for badge)
   const itemCount = cart.reduce((acc, product) => acc + product.qty, 0);
@@ -101,7 +101,10 @@ export default function Header() {
                 <>
                   <ul className="flex flex-col gap-8 text-white">
                     {cart.map((product) => (
-                      <li key={product.id} className="text-xl flex flex-col">
+                      <li
+                        key={product.id}
+                        className="text-xl flex flex-col mt-8"
+                      >
                         <p>{product.name}</p>
                         <div className="flex justify-between gap-20">
                           <span>
@@ -110,9 +113,13 @@ export default function Header() {
                           <img src={product.image} className="w-40" />
                         </div>
 
-                        <button className="flex hover:underline font-bold mt-2 hover:scale-105 text-[#FE7F9C] text-lg cursor-pointer">
+                        <button
+                          onClick={() => deleteFromCart(product.id)}
+                          className="flex hover:underline font-bold mt-2 text-[#FE7F9C] text-lg cursor-pointer"
+                        >
                           Remove
                         </button>
+                        <div className="h-0.5 w-60 md:w-4xl mt-8 cursor-pointer bg-[#FE7F9C]/20"></div>
                       </li>
                     ))}
                   </ul>
