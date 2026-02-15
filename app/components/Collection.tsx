@@ -49,10 +49,10 @@ export function Collection() {
                     rating={cake.rating}
                     image={cake.image}
                     alt={cake.alt}
-                    price={`$${cake.price.toFixed(2)}`}
+                    price={cake.price}
                     cheeseCakeName={cake.name}
-                    cheeseCakeItem={cake.id as number}
                     description={cake.description}
+                    cheeseCakeItem={cake.id}
                   />
                 </div>
               );

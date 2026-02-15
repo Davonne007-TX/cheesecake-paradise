@@ -27,6 +27,7 @@ export default function Card({
     name: cheeseCakeName,
     price: Number(price),
     description: description,
+    image: image,
   };
 
   return (
