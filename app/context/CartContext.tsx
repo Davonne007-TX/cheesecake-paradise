@@ -5,14 +5,18 @@ type Product = {
   description: string;
   name: string;
   price: number;
+  image: string;
+  qty: number;
 };
 
 type CartItem = Product & {
   qty: number;
+  image: string;
 };
 const CartContext = createContext<{
   cart: CartItem[];
   addToCart: (product: Product) => void;
+  deleteFromCart: (id: string) => void;
 } | null>(null);
 
 export function CartProvider({ children }: { children: ReactNode }) {
@@ -34,8 +38,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
     });
   };
 
+  const deleteFromCart = (id: string) => {
+    setCart((prev) =>
+      prev.filter((cheesecakeProduct) => cheesecakeProduct.id !== id),
+    );
+  };
   return (
-    <CartContext.Provider value={{ cart, addToCart }}>
+    <CartContext.Provider value={{ cart, addToCart, deleteFromCart }}>
       {children}
     </CartContext.Provider>
   );
