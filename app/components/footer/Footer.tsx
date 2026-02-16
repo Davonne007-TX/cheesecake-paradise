@@ -18,7 +18,7 @@ export default function () {
   ];
 
   return (
-    <footer className="bg-black/80 backdrop-blur-md p-12 text-white border-t border-white/10">
+    <footer className="bg-[#181818] backdrop-blur-md p-12 text-white border-t border-white/10">
       <div className="flex flex-col md:flex-row md:justify-between gap-12 max-w-6xl mx-auto">
         <div className="flex flex-col gap-4 max-w-sm">
           <div className="flex gap-2 items-center">
