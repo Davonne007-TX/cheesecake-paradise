@@ -17,6 +17,7 @@ const CartContext = createContext<{
   cart: CartItem[];
   addToCart: (product: Product) => void;
   deleteFromCart: (id: string) => void;
+  clearCart: () => void;
 } | null>(null);
 
 export function CartProvider({ children }: { children: ReactNode }) {
@@ -43,8 +44,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
       prev.filter((cheesecakeProduct) => cheesecakeProduct.id !== id),
     );
   };
+
+  const clearCart = () => {
+    setCart([]);
+  };
   return (
-    <CartContext.Provider value={{ cart, addToCart, deleteFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, deleteFromCart, clearCart }}
+    >
       {children}
     </CartContext.Provider>
   );

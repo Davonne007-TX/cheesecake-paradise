@@ -12,7 +12,7 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const { cart, deleteFromCart } = useCart();
+  const { cart, deleteFromCart, clearCart } = useCart();
 
   // Total items in cart (for badge)
   const itemCount = cart.reduce((acc, product) => acc + product.qty, 0);
@@ -142,9 +142,17 @@ export default function Header() {
                     ))}
                   </ul>
                   <p className="mt-10 font-bold text-xl">Total: ${total}</p>
-                  <button className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
-                    Checkout
-                  </button>
+                  <div className="flex gap-8 justify-center items-center">
+                    <button
+                      onClick={() => clearCart()}
+                      className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
+                    >
+                      Clear Cart
+                    </button>
+                    <button className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
+                      Checkout
+                    </button>
+                  </div>
                 </>
               )}
             </section>
