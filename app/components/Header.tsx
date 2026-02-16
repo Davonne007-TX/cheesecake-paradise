@@ -37,7 +37,6 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-white/10">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 text-white">
-        {/* Logo */}
         <div className="flex gap-4 items-center">
           <img
             src="./images/cake.png"
@@ -69,11 +68,13 @@ export default function Header() {
 
         {/* Cart + Mobile Menu */}
         <div className="flex items-center gap-6">
-          <button className="hidden md:block rounded bg-[#FE7F9C] w-24 p-2 text-sm font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
+          <button
+            onClick={() => scrollToSection("collection")}
+            className="hidden md:block rounded bg-[#FE7F9C] w-24 p-2 text-sm font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
+          >
             Order Now
           </button>
 
-          {/* Cart Icon */}
           <button
             onClick={() => setShowDropdown(!showDropdown)}
             className="relative text-white/80 hover:text-white transition cursor-pointer"
@@ -89,33 +90,50 @@ export default function Header() {
           {/* Cart Dropdown */}
           {showDropdown && (
             <section
-              className="absolute top-28 md:top-18 right-0 w-full md:w-99
-              bg-black backdrop-blur-md  p-12 text-white border-t border-white/10
-            shadow-2xl shadow-black/40 z-50 animate-in fade-in slide-in-from-top-4 duration-300"
+              className="absolute top-26 sm:top-16 mt-2 md:mt-0 md:top-18 right-0 w-96 md:w-96 max-h-[74vh] overflow-y-auto 
+              bg-[#181818] backdrop-blur-xl p-12 text-white border-t text-center border-white/10 cart-scroll
+           z-50 animate-in fade-in slide-in-from-top-4 duration-300 "
             >
-              <h2 className="font-nic text-4xl mb-4">My Cart</h2>
+              <h2 className="font-nic text-4xl my-4  shadow-white w-40 mx-auto p-2 shadow-xs">
+                My Cart
+              </h2>
 
               {cart.length === 0 ? (
-                <p className="text-xl">Your cart is empty</p>
+                <div className="flex flex-col justify-center items-center gap-8">
+                  <p className="text-xl font-thin mt-4">
+                    No cheesecakes in your cart
+                  </p>
+                  <button
+                    onClick={() => {
+                      (scrollToSection("collection"), setShowDropdown(false));
+                    }}
+                    className="rounded bg-[#FE7F9C] w-60 font-nic text-black p-2 text-2xl f cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
+                  >
+                    Checkout our cakes
+                  </button>
+                </div>
               ) : (
                 <>
-                  <ul className="flex flex-col gap-8 text-white">
+                  <ul className="flex flex-col items-center justify-center gap-8 text-white ">
                     {cart.map((product) => (
                       <li
                         key={product.id}
                         className="text-xl flex flex-col mt-8"
                       >
-                        <p>{product.name}</p>
-                        <div className="flex justify-between gap-20">
-                          <span>
-                            {product.qty} × ${product.price.toFixed(2)}
-                          </span>
-                          <img src={product.image} className="w-40" />
+                        <div className="flex flex-col text-center justify-between items-center gap-8">
+                          <div className="flex flex-col gap-1">
+                            <p className="font-dm text-xl">{product.name}</p>
+
+                            <span className="text-gray-200 text-md">
+                              {product.qty} × ${product.price.toFixed(2)}
+                            </span>
+                          </div>
+                          <img src={product.image} className="w-40 ml-4 " />
                         </div>
 
                         <button
                           onClick={() => deleteFromCart(product.id)}
-                          className="flex hover:underline font-bold mt-2 text-[#FE7F9C] text-lg cursor-pointer"
+                          className="hover:underline font-bold mt-8 text-[#FE7F9C] text-lg cursor-pointer"
                         >
                           Remove
                         </button>
@@ -124,7 +142,7 @@ export default function Header() {
                     ))}
                   </ul>
                   <p className="mt-10 font-bold text-xl">Total: ${total}</p>
-                  <button className="rounded bg-[#FE7F9C] w-80s p-2 mt-8 text-sm font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
+                  <button className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
                     Checkout
                   </button>
                 </>
@@ -144,7 +162,7 @@ export default function Header() {
 
       {/* Mobile Nav */}
       {mobileNavOpen && (
-        <div className="flex flex-col justify-center items-center gap-6 mt-6 p-6 bg-black/10 backdrop-blur-lg md:hidden rounded-b-lg">
+        <div className="flex flex-col justify-center items-center gap-6 p-6 bg-black/10 backdrop-blur-lg md:hidden">
           {nav.map((item) => (
             <ul key={item.id} className="font-dm font-thin">
               <li
@@ -158,7 +176,13 @@ export default function Header() {
               </li>
             </ul>
           ))}
-          <button className="rounded cursor-pointer bg-[#FE7F9C] font-nic text-2xl tracking-wider w-60 p-2 hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
+          <button
+            onClick={() => {
+              scrollToSection("collection");
+              setMobileNavOpen(false);
+            }}
+            className="rounded cursor-pointer bg-[#FE7F9C] font-nic text-2xl tracking-wider w-60 p-2 hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
+          >
             Order Now
           </button>
         </div>
