@@ -20,8 +20,8 @@ export function Collection() {
             </h2>
             <p className="text-gray-500 text-center text-lg mx-auto max-w-xs">
               From our family to yours. Our cheesecake is made to perfection for
-              all our customers. From classic favorites to the works. Get your
-              cheesecake today!
+              all our customers. 16 slices, from classic favorites to the works.
+              Get your cheesecake today!
             </p>
           </div>
         </div>

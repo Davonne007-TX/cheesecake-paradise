@@ -29,7 +29,7 @@ export default function Hero() {
       </p>
       <div className="flex flex-col items-center justify-center mt-6">
         <h2 className="text-6xl md:text-8xl font-nic">Velvet Goodness</h2>
-        <p className="italic font-dm text-gray-500 text-center text-3xl mt-8">
+        <p className="italic font-dm text-gray-500 text-center text-3xl mt-10">
           where every bite hits
         </p>
       </div>

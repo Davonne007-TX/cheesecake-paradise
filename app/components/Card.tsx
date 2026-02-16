@@ -40,7 +40,7 @@ export default function Card({
             <p className="md:text-md font-bold">⭐ {rating}</p>
             <div className="flex justify-between items-center gap-40">
               <h3 className="font-dm text-2xl md:text-xl">{cheeseCakeName}</h3>
-              <p className="font-bold text-[#FE7F9C]">{price}</p>
+              <p className="font-bold text-[#FE7F9C]">${price}</p>
             </div>
             <p>{description}</p>
             <motion.div
