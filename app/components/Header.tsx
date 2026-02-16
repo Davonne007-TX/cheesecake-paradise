@@ -142,7 +142,7 @@ export default function Header() {
                     ))}
                   </ul>
                   <p className="mt-10 font-bold text-xl">Total: ${total}</p>
-                  <button className="rounded bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
+                  <button className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
                     Checkout
                   </button>
                 </>
