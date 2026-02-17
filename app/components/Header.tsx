@@ -94,7 +94,7 @@ export default function Header() {
               bg-[#181818] backdrop-blur-xl p-12 text-white border-t text-center border-white/10 cart-scroll
            z-50 animate-in fade-in slide-in-from-top-4 duration-300 "
             >
-              <h2 className="font-nic text-4xl my-4  shadow-white w-40 mx-auto p-2 shadow-xs">
+              <h2 className="font-nic text-4xl my-4  shadow-white/80 w-40 mx-auto p-2 shadow-md">
                 My Cart
               </h2>
 
@@ -122,7 +122,7 @@ export default function Header() {
                       >
                         <div className="flex flex-col text-center justify-between items-center gap-8">
                           <div className="flex flex-col gap-1">
-                            <p className="font-dm text-xl">{product.name}</p>
+                            <p className="font-dm text-2xl">{product.name}</p>
 
                             <span className="text-gray-200 text-md">
                               {product.qty} × ${product.price.toFixed(2)}

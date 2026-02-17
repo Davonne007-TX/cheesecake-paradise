@@ -26,7 +26,7 @@ export function Collection() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-10 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12">
           {cheesecakeItem.map(
             (cake: {
               id: Key | null | undefined;
