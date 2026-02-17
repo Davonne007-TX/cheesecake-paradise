@@ -21,11 +21,38 @@
     {
       "id": 3,
       "name": "Berry Delight",
-      "price": 32,
+      "price": 27,
       "description": "Flavor in every bite with our blueberry topped cheesecake. Smooth, elegant, delicious on a graham cracker crust.",
       "rating": 4.8,
       "image": "/images/blueberry.webp",
       "alt": "Blueberry Classic Cheesecake, image by Mink Mingle on Unsplash"
+    },
+    {
+      "id": 4,
+      "name": "Chocolate Dream",
+      "price": 35,
+      "description": "The taste you'll never forget. Chocolate covered piping, NY Style, delicious on a graham cracker crust.",
+      "rating": 5,
+      "image": "/images/chocolate.webp",
+      "alt": "Chocolate NY Style Cheesecake, image by rosa sepanta on Unsplash."
+    },
+    {
+      "id": 5,
+      "name": "Carmel Dirizzle",
+      "price": 29,
+      "description": "Want carmel cheesecake? We got you. Drizzled carmel NY Style, on a graham cracker crust and the works.",
+      "rating": 4.7,
+      "image": "/images/carmel.webp",
+      "alt": "Carmel NY Style Cheesecake, image by med wael laraiedh on Unsplash."
+    },
+    {
+      "id": 6,
+      "name": "Nutella Extreme",
+      "price": 32,
+      "description": "Whats cheesecake without Nutella? Classic NY Style with drizzle Nutella and chocolate chunks on a graham cracker crust ",
+      "rating": 5,
+      "image": "/images/nutella.webp",
+      "alt": "NY Style Cheesecake with Nutella, image by med wael laraiedh on Unsplash."
     }
   ]
 }
