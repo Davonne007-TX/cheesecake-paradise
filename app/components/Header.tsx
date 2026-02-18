@@ -1,6 +1,7 @@
 import { ShoppingCart, Menu, X } from "lucide-react";
 import { useCart } from "~/context/CartContext";
 import { useState } from "react";
+import { Link } from "react-router";
 
 interface NavItem {
   id: number;
@@ -149,9 +150,12 @@ export default function Header() {
                     >
                       Clear Cart
                     </button>
-                    <button className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
+                    <Link
+                      to="/checkout"
+                      className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
+                    >
                       Checkout
-                    </button>
+                    </Link>
                   </div>
                 </>
               )}

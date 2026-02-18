@@ -26,7 +26,7 @@ export function Collection() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mt-12">
           {cheesecakeItem.map(
             (cake: {
               id: Key | null | undefined;
@@ -42,8 +42,6 @@ export function Collection() {
                   key={cake.id}
                   className="bg-amber-50 max-w-xl md:max-w-sm h-full rounded-2xl"
                 >
-                  {loading && <p>Loading...</p>}
-                  {fetchError && <p>{fetchError}</p>}
                   <Card
                     key={cake.id}
                     rating={cake.rating}
