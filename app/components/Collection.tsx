@@ -20,13 +20,13 @@ export function Collection() {
             </h2>
             <p className="text-gray-500 text-center text-lg mx-auto max-w-xs">
               From our family to yours. Our cheesecake is made to perfection for
-              all our customers. From classic favorites to the works. Get your
-              cheesecake today!
+              all our customers. 16 slices, from classic favorites to the works.
+              Get your cheesecake today!
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-10 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-10 mt-12">
           {cheesecakeItem.map(
             (cake: {
               id: Key | null | undefined;
@@ -42,8 +42,6 @@ export function Collection() {
                   key={cake.id}
                   className="bg-amber-50 max-w-xl md:max-w-sm h-full rounded-2xl"
                 >
-                  {loading && <p>Loading...</p>}
-                  {fetchError && <p>{fetchError}</p>}
                   <Card
                     key={cake.id}
                     rating={cake.rating}

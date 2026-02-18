@@ -1,6 +1,7 @@
 import { ShoppingCart, Menu, X } from "lucide-react";
 import { useCart } from "~/context/CartContext";
 import { useState } from "react";
+import { Link } from "react-router";
 
 interface NavItem {
   id: number;
@@ -12,7 +13,7 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const { cart, deleteFromCart } = useCart();
+  const { cart, deleteFromCart, clearCart } = useCart();
 
   // Total items in cart (for badge)
   const itemCount = cart.reduce((acc, product) => acc + product.qty, 0);
@@ -94,7 +95,7 @@ export default function Header() {
               bg-[#181818] backdrop-blur-xl p-12 text-white border-t text-center border-white/10 cart-scroll
            z-50 animate-in fade-in slide-in-from-top-4 duration-300 "
             >
-              <h2 className="font-nic text-4xl my-4  shadow-white w-40 mx-auto p-2 shadow-xs">
+              <h2 className="font-nic text-4xl my-4  shadow-white/80 w-40 mx-auto p-2 shadow-md">
                 My Cart
               </h2>
 
@@ -122,7 +123,7 @@ export default function Header() {
                       >
                         <div className="flex flex-col text-center justify-between items-center gap-8">
                           <div className="flex flex-col gap-1">
-                            <p className="font-dm text-xl">{product.name}</p>
+                            <p className="font-dm text-2xl">{product.name}</p>
 
                             <span className="text-gray-200 text-md">
                               {product.qty} × ${product.price.toFixed(2)}
@@ -142,9 +143,20 @@ export default function Header() {
                     ))}
                   </ul>
                   <p className="mt-10 font-bold text-xl">Total: ${total}</p>
-                  <button className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95">
-                    Checkout
-                  </button>
+                  <div className="flex gap-8 justify-center items-center">
+                    <button
+                      onClick={() => clearCart()}
+                      className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
+                    >
+                      Clear Cart
+                    </button>
+                    <Link
+                      to="/checkout"
+                      className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
+                    >
+                      Checkout
+                    </Link>
+                  </div>
                 </>
               )}
             </section>
