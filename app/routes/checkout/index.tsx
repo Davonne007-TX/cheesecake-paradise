@@ -5,7 +5,6 @@ export default function CheckoutPage() {
   return (
     <section className="mt-20 mx-auto">
       <Order />
-      <CheckoutForm />
     </section>
   );
 }
