@@ -14,30 +14,35 @@ export default function Order() {
     }
   };
   return (
-    <section className="flex flex-col justify-center items-center mt-28 ">
-      <h1 className="text-center text-4xl md:text-5xl font-nic mt-10">
+    <section className="flex flex-col justify-center items-center ">
+      <h1 className="text-center text-4xl md:text-5xl font-nic mt-20">
         Your Cart
       </h1>
-      <p className="font-thin text-md md:text-2xl mt-4 text-center max-w-xs md:max-w-2xl">
-        Every order comes with a side of apple pie and ice cream on us.
-      </p>
       {cart.length === 0 ? (
         <div className="flex flex-col justify-center items-center gap-4">
           <p className="text-lg md:text-xl mt-8 font-semibold">
             Your cheesecake cart is empty.
           </p>
+
           <button
-            className="bg-[#FE7F9C] p-2 font-dm rounded  hover:scale-105 cursor-pointer text-xl"
+            className="bg-[#FE7F9C] p-2 font-dm rounded  hover:scale-105 cursor-pointer md:text-xl"
             onClick={() => scrollToSection("collection")}
           >
             View Menu
           </button>
+          <img
+            src="./images/drip.webp"
+            className="w-full aspect-4/1 object-cover shadow-xl shadow-[#FE7F9C]/60 mt-20"
+          />
         </div>
       ) : (
         <section>
-          <ul className="mt-8 ">
+          <ul>
+            <p className="font-thin text-md mx-auto md:text-2xl mt-4 text-center max-w-xs md:max-w-2xl">
+              Every order comes with a side of apple pie and ice cream on us.
+            </p>
             {cart.map((cheesecake) => (
-              <div className="flex flex-col items-center justify-center mt-20 gap-8 font-dm text-lg md:text-2xl">
+              <div className="flex flex-col items-center justify-center mt-8 gap-8 font-dm text-lg md:text-2xl">
                 <div className="flex justify-between gap-20 md:gap-60">
                   <li key={cheesecake.id}>{cheesecake.name}</li>
                   <div className="flex gap-4">
