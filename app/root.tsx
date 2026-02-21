@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import { OurCheeseCakeContext } from "./context/OurCheesecake";
 import { CartProvider } from "./context/CartContext";
+import Header from "./components/Header";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -43,7 +44,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <main>{children}</main>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -55,6 +56,7 @@ export default function App() {
   return (
     <OurCheeseCakeContext>
       <CartProvider>
+        <Header />
         <Outlet />;
       </CartProvider>
     </OurCheeseCakeContext>

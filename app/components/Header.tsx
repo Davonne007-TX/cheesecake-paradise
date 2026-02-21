@@ -32,26 +32,28 @@ export default function Header() {
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
-    if (element) element.scrollIntoView({ behavior: "smooth" });
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // If element doesn't exist on current page, navigate to home and scroll
+      window.location.href = `/#${sectionId}`;
+    }
   };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-white/10">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 text-white">
-        <div className="flex gap-4 items-center">
+        <Link to="/" className="flex gap-4 items-center">
           <img
             src="./images/cake.png"
             alt="Velvet Goodness Logo"
             className="w-8"
           />
-          <h1
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="font-nic text-4xl tracking-wide cursor-pointer"
-          >
+          <h1 className="font-nic text-4xl tracking-wide cursor-pointer">
             Velvet
             <span className="text-[#FE7F9C]"> Goodness</span>
           </h1>
-        </div>
+        </Link>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex gap-10 text-md font-medium mr-20">
@@ -152,6 +154,7 @@ export default function Header() {
                     </button>
                     <Link
                       to="/checkout"
+                      onClick={() => setShowDropdown(!showDropdown)}
                       className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
                     >
                       Checkout
