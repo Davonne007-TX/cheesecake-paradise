@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "name": "NY Style",
+      "name": "New York Style",
       "price": 30,
       "description": "Your classic favorite cheesecake. A rich, smooth, velvety texture on a buttery graham cracker crust.",
       "rating": 5.0,
@@ -29,11 +29,11 @@
     },
     {
       "id": 4,
-      "name": "Chocolate Dream",
+      "name": "The One Cheesecake",
       "price": 35,
-      "description": "Mmmmmm. Chocolate covered, NY Style, delicious on a graham cracker crust.",
+      "description": "Classic favorite New Style velvet cheesecake, on a graham cracker crust. Toped with crumbs of gram crackers goodness.",
       "rating": 5,
-      "image": "/images/chocolate.webp",
+      "image": "/images/ny.webp",
       "alt": "Chocolate NY Style Cheesecake, image by rosa sepanta on Unsplash."
     },
     {
