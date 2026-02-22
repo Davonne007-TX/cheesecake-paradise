@@ -14,14 +14,20 @@ export default function Order() {
       window.location.href = `/#${sectionId}`;
     }
   };
+
+  // Total price
+  const total = cart
+    .reduce((acc, product) => acc + product.price * product.qty, 0)
+    .toFixed(2);
   return (
     <section className="flex flex-col justify-center items-center ">
-      <h1 className="text-center text-4xl md:text-5xl font-nic mt-10">
+      <h1 className="text-center text-4xl md:text-5xl font-nic mt-10 md:mt-20">
         Your Cart
       </h1>
       <p className="font-thin text-md mx-auto md:text-2xl mt-4 text-center max-w-xs md:max-w-lg">
         And every order comes with a side of apple pie and ice cream on us.
       </p>
+
       {cart.length === 0 ? (
         <div className="flex flex-col justify-center items-center gap-4">
           <p className="text-lg md:text-xl mt-8 font-semibold">
@@ -43,7 +49,7 @@ export default function Order() {
         <section>
           <ul>
             {cart.map((cheesecake) => (
-              <div className="flex flex-col bg-white w-full p-4 rounded-2xl mt-8 gap-8 font-dm text-lg md:text-2xl">
+              <div className="flex flex-col bg-white w-full p-4 rounded-2xl mt-8 gap-8 font-dm text-lg md:text-xl">
                 <div className="flex justify-between gap-20 md:gap-60">
                   <li key={cheesecake.id}>{cheesecake.name}</li>
                   <div className="flex gap-4">
@@ -71,10 +77,13 @@ export default function Order() {
             ))}
           </ul>
 
-          <div className="flex flex-col justify-center items-center mt-8">
+          <div className="flex flex-col md:flex-row justify-center items-center mt-8 md:gap-10 ">
+            <button className="font-bold cursor-pointer text-black text-xl p-2 rounded-lg">
+              Total:${total}
+            </button>
             <button
               onClick={() => scrollToSection("collection")}
-              className="mt-8 bg-black/70 cursor-pointer hover:scale-105 text-white p-2 rounded-lg"
+              className="bg-black/70 cursor-pointer  hover:scale-105 text-white p-2 rounded-lg"
             >
               Add more items
             </button>
