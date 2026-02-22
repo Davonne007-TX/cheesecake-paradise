@@ -1,6 +1,6 @@
 import type { Route } from "./+types/home";
 import { Collection } from "~/components/Collection";
-import Header from "~/components/Header";
+import Header from "~/components/Header/Header";
 import Hero from "~/components/Hero";
 import OurStory from "~/components/OurStory";
 import Reviews from "~/components/Reviews";
