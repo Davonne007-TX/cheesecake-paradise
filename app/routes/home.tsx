@@ -1,7 +1,7 @@
 import type { Route } from "./+types/home";
 import { Collection } from "~/components/Collection";
-import Header from "~/components/Header/Header";
 import Hero from "~/components/Hero";
+import SecondHero from "~/components/SecondHero";
 import OurStory from "~/components/OurStory";
 import Reviews from "~/components/Reviews";
 import Newsletter from "~/components/Newsletter";
@@ -19,6 +19,7 @@ export default function Home() {
     <main>
       <Hero />
       <Collection />
+      <SecondHero />
       <OurStory />
       <Reviews />
       <Newsletter />
