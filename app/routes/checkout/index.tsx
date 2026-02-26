@@ -1,5 +1,6 @@
 import CheckoutForm from "./components/CheckoutForm";
 import Order from "./components/Order";
+import PickUpLocation from "./components/PickUpLocation";
 
 export default function CheckoutPage() {
   return (
