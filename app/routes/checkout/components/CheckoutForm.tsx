@@ -132,8 +132,10 @@ export default function CheckoutForm() {
           </div>
           {isSubmitted && (
             <section className="flex flex-col justify-center items-center mt-8 gap-2 text-white">
-              <h1 className="font-serif text-2xl">Pick Up Location</h1>
-              <p className="text-xl">2319 Elm Street, CA 90210</p>
+              <h2 className="font-serif text-2xl">Order has been received!</h2>
+              <p className="font-serif text-xl max-w-lg text-center">
+                Pick up location: 2318 Sully Lane, Forks, WA 90210
+              </p>
             </section>
           )}
         </div>
