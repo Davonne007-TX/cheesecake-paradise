@@ -18,10 +18,10 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Collection />
-      <SecondHero />
       <OurStory />
+      <Collection />
       <Reviews />
+      <SecondHero />
       <Newsletter />
       <Footer />
     </main>

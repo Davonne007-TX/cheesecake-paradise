@@ -24,8 +24,8 @@ export default function Header() {
     .toFixed(2);
 
   const nav: NavItem[] = [
-    { name: "Collection", id: 1, sectionId: "collection" },
-    { name: "Our Story", id: 2, sectionId: "story" },
+    { name: "Our Story", id: 1, sectionId: "story" },
+    { name: "Collection", id: 2, sectionId: "collection" },
     { name: "Reviews", id: 3, sectionId: "reviews" },
     { name: "Contact", id: 4, sectionId: "contact" },
   ];
@@ -56,7 +56,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex gap-10 text-md font-medium mr-20">
+        <ul className="hidden md:flex gap-10 text-lg font-medium mr-20">
           {nav.map((item) => (
             <li
               key={item.id}
@@ -93,11 +93,11 @@ export default function Header() {
           {/* Cart Dropdown */}
           {showDropdown && (
             <section
-              className="absolute top-26 sm:top-16 mt-2 md:mt-0 md:top-18 right-0 w-96 md:w-96 max-h-[74vh] overflow-y-auto 
-              bg-[#181818] backdrop-blur-xl p-12 text-white border-t text-center border-white/10 cart-scroll
+              className="absolute top-24 sm:top-16 mt-2 md:mt-0 md:top-28 lg:top-18  right-0 w-96 md:w-96 max-h-[74vh] overflow-y-auto 
+              bg-[#181818] backdrop-blur-xl p-12 text-white border-t text-center md:rounded-bl-2xl border-white/10 cart-scroll
            z-50 animate-in fade-in slide-in-from-top-4 duration-300 "
             >
-              <h2 className="font-nic text-4xl my-4  shadow-white/80 w-40 mx-auto p-2 shadow-md">
+              <h2 className="font-nic text-4xl my-4  shadow-white/80 w-40 mx-auto p-2 shadow-lg">
                 My Cart
               </h2>
 
@@ -168,7 +168,7 @@ export default function Header() {
           {/* Mobile Menu Icon */}
           <button
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
-            className="md:hidden focus:outline-none cursor-pointer"
+            className="lg:hidden focus:outline-none cursor-pointer"
           >
             {mobileNavOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
