@@ -56,7 +56,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex gap-10 text-md font-medium mr-20">
+        <ul className="hidden md:flex gap-10 text-lg font-medium mr-20">
           {nav.map((item) => (
             <li
               key={item.id}

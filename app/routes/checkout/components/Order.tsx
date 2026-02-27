@@ -47,7 +47,7 @@ export default function Order() {
           />
         </div>
       ) : (
-        <section className="w-xs md:w-xl">
+        <section className="w-xs md:w-3xl py-10">
           <ul>
             {cart.map((cheesecake) => (
               <div className="flex flex-col bg-white mx-auto justify-center items-center p-4 rounded-2xl mt-8 gap-8 font-dm text-md md:text-xl">

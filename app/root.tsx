@@ -12,6 +12,7 @@ import "./app.css";
 import { OurCheeseCakeContext } from "./context/OurCheesecake";
 import { CartProvider } from "./context/CartContext";
 import Header from "./components/Header/Header";
+import Footer from "~/components/footer/Footer";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -58,6 +59,7 @@ export default function App() {
       <CartProvider>
         <Header />
         <Outlet />;
+        <Footer />
       </CartProvider>
     </OurCheeseCakeContext>
   );
