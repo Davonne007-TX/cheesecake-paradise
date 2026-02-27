@@ -43,11 +43,11 @@ export default function Order() {
           </button>
           <img
             src="./images/drip.webp"
-            className="w-full aspect-4/1 object-cover shadow-xl shadow-[#FE7F9C]/60 mt-10"
+            className="w-full aspect-4/1 object-cover shadow-xl shadow-[#FE7F9C]/60 mt-10 mb-4"
           />
         </div>
       ) : (
-        <section className="w-xs md:w-3xl py-10">
+        <section className="w-xs md:w-3xl mb-10">
           <ul>
             {cart.map((cheesecake) => (
               <div className="flex flex-col bg-white mx-auto justify-center items-center p-4 rounded-2xl mt-8 gap-8 font-dm text-md md:text-xl">
