@@ -47,10 +47,10 @@ export default function Order() {
           />
         </div>
       ) : (
-        <section className="max-w-5xl">
+        <section className="w-xs md:w-xl">
           <ul>
             {cart.map((cheesecake) => (
-              <div className="flex flex-col bg-white max-w-xs md:max-w-xl lg:max-w-2xl mx-auto justify-center items-center p-4 rounded-2xl mt-8 gap-8 font-dm text-md md:text-xl">
+              <div className="flex flex-col bg-white mx-auto justify-center items-center p-4 rounded-2xl mt-8 gap-8 font-dm text-md md:text-xl">
                 <div className="flex justify-between gap-20 md:gap-60">
                   <li key={cheesecake.id}>{cheesecake.name}</li>
                   <div className="flex gap-4">

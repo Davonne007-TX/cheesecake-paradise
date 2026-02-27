@@ -24,8 +24,8 @@ export default function Header() {
     .toFixed(2);
 
   const nav: NavItem[] = [
-    { name: "Collection", id: 1, sectionId: "collection" },
-    { name: "Our Story", id: 2, sectionId: "story" },
+    { name: "Our Story", id: 1, sectionId: "story" },
+    { name: "Collection", id: 2, sectionId: "collection" },
     { name: "Reviews", id: 3, sectionId: "reviews" },
     { name: "Contact", id: 4, sectionId: "contact" },
   ];
@@ -168,7 +168,7 @@ export default function Header() {
           {/* Mobile Menu Icon */}
           <button
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
-            className="md:hidden focus:outline-none cursor-pointer"
+            className="lg:hidden focus:outline-none cursor-pointer"
           >
             {mobileNavOpen ? <X size={28} /> : <Menu size={28} />}
           </button>

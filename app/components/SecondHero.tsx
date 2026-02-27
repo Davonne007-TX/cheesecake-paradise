@@ -1,6 +1,6 @@
 export default function SecondHeader() {
   return (
-    <section className="relative max-w-xl md:max-w-7xl mx-auto mt-20 px-4">
+    <section className="relative max-w-sm md:max-w-3xl lg:max-w-7xl mx-auto py-40">
       <div className="relative overflow-hidden rounded-3xl shadow-2xl">
         <img
           src="./images/candy.webp"
@@ -19,7 +19,7 @@ export default function SecondHeader() {
 
           <button
             className="
-            mt-6 bg-amber-200 text-black px-8 py-3 cursor-pointer rounded-full text-md
+            mt-6 bg-amber-200 text-black px-8 py-3 cursor-pointer rounded-full text-sm
             md:text-lg font-semibold shadow-lg hover:bg-amber-300 hover:scale-105 transition duration-300"
           >
             Order Online

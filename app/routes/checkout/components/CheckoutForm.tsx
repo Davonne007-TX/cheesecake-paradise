@@ -40,11 +40,11 @@ export default function CheckoutForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mt-12 bg-black/70 p-8 max-w-6xl rounded-md h-100 md:h-140 mx-auto px-8"
+      className="mt-12 bg-black/70 p-8 max-w-6xl rounded-md h-full md:h-140 mx-auto px-8"
     >
       <h1
         className="font-nic text-5xl text-white 
-         flex gap-4 items-center justify-center"
+         flex gap-4 items-center justify-center mt-2"
       >
         <CakeSlice width={30} height={30} />
         Checkout
@@ -56,7 +56,7 @@ export default function CheckoutForm() {
       </p>
 
       <div className="mt-8 font-serif">
-        <div className="flex flex-col gap-4 w-sm">
+        <div className="flex flex-col mx-auto gap-4 w-60 md:w-sm">
           <input
             type="text"
             required
@@ -87,7 +87,7 @@ export default function CheckoutForm() {
             placeholder="Credit Card Number"
             className="p-2 bg-white outline-none"
           />
-          <div className="flex gap-4">
+          <div className="flex flex-col md:flex-row gap-4">
             <div className="flex gap-2">
               <input
                 required
