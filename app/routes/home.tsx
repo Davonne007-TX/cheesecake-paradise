@@ -5,7 +5,6 @@ import SecondHero from "~/components/SecondHero";
 import OurStory from "~/components/OurStory";
 import Reviews from "~/components/Reviews";
 import Newsletter from "~/components/Newsletter";
-import Footer from "~/components/footer/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -23,7 +22,6 @@ export default function Home() {
       <Reviews />
       <SecondHero />
       <Newsletter />
-      <Footer />
     </main>
   );
 }

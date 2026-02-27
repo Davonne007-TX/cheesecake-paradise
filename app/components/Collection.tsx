@@ -2,7 +2,7 @@ import Card from "~/components/Card";
 import { useCheesecakeItems } from "~/context/OurCheesecake";
 
 export function Collection() {
-  const { cheesecakeItem, loading, fetchError } = useCheesecakeItems();
+  const { cheesecakeItem } = useCheesecakeItems();
   return (
     <main
       id="collection"

@@ -94,7 +94,7 @@ export default function Header() {
           {showDropdown && (
             <section
               className="absolute top-24 sm:top-16 mt-2 md:mt-0 md:top-28 lg:top-18  right-0 w-96 md:w-96 max-h-[74vh] overflow-y-auto 
-              bg-[#181818] backdrop-blur-xl p-12 text-white border-t text-center md:rounded-bl-2xl border-white/10 cart-scroll
+              bg-[#181818] backdrop-blur-xl p-12 text-white text-center md:rounded-bl-3xl border-white/10 cart-scroll
            z-50 animate-in fade-in slide-in-from-top-4 duration-300 "
             >
               <h2 className="font-nic text-4xl my-4  shadow-white/80 w-40 mx-auto p-2 shadow-lg">
@@ -116,7 +116,7 @@ export default function Header() {
                   </button>
                 </div>
               ) : (
-                <>
+                <nav>
                   <ul className="flex flex-col items-center justify-center gap-8 text-white ">
                     {cart.map((product) => (
                       <li
@@ -160,7 +160,7 @@ export default function Header() {
                       Checkout
                     </Link>
                   </div>
-                </>
+                </nav>
               )}
             </section>
           )}
