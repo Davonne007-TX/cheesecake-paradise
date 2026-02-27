@@ -40,38 +40,36 @@ export default function CheckoutForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mt-12 bg-black/70 rounded-3xl 
-    
-      mx-auto p-8 max-w-7xl"
+      className="mt-12 bg-black/70 p-8 max-w-6xl rounded-md h-100 md:h-140 mx-auto px-8"
     >
       <h1
         className="font-nic text-5xl text-white 
-         flex gap-4 items-center justify-center "
+         flex gap-4 items-center justify-center"
       >
         <CakeSlice width={30} height={30} />
         Checkout
         <CakeSlice width={30} height={30} />
       </h1>
-      <p className="text-white max-w-sm text-center p-2 mx-auto">
+      <p className="text-white max-w-sm text-center mx-auto mt-2">
         {" "}
         And every order comes with a side of apple pie and ice cream on us.
       </p>
 
-      <div className="flex flex-col md:flex-row gap-10 md:gap-20 items-center justify-between mt-8">
-        <div className="flex flex-col gap-8 font-dm w-full md:w-1/2">
+      <div className="mt-8 font-serif">
+        <div className="flex flex-col gap-4 w-sm">
           <input
             type="text"
             required
             onChange={handleChange}
             placeholder="Full Name"
-            className="border-3 border-[#FE7F9C] p-2 bg-white rounded-sm outline-none"
+            className="p-2 bg-white outline-none"
           />
           <input
             required
             onChange={handleChange}
             type="address"
             placeholder="Address"
-            className="border-3 border-[#FE7F9C] p-2 bg-white rounded-sm outline-none"
+            className="p-2 bg-white outline-none"
           />
 
           <input
@@ -79,7 +77,7 @@ export default function CheckoutForm() {
             required
             onChange={handleChange}
             placeholder="E-mail Address"
-            className="border-3 border-[#FE7F9C] p-2 bg-white rounded-sm outline-none"
+            className="p-2 bg-white outline-none"
           />
 
           <input
@@ -87,44 +85,38 @@ export default function CheckoutForm() {
             onChange={handleChange}
             type="text"
             placeholder="Credit Card Number"
-            className="border-3 border-[#FE7F9C] p-2 bg-white rounded-sm outline-none"
+            className="p-2 bg-white outline-none"
           />
           <div className="flex gap-4">
-            <input
-              required
-              onChange={handleChange}
-              type="text"
-              placeholder="expir"
-              className="border-3 border-[#FE7F9C] p-2 bg-white rounded-sm outline-none w-20"
-            />
+            <div className="flex gap-2">
+              <input
+                required
+                onChange={handleChange}
+                type="text"
+                placeholder="expir"
+                className="p-2 bg-white outline-none w-20"
+              />
+
+              <input
+                required
+                onChange={handleChange}
+                type="text"
+                placeholder="cvv"
+                className="p-2 bg-white outline-none w-20"
+              />
+            </div>
 
             <input
-              required
               onChange={handleChange}
               type="text"
-              placeholder="cvv"
-              className="border-3 border-[#FE7F9C] p-2 bg-white rounded-sm outline-none w-20"
+              placeholder="PROMO CODE"
+              className="p-2 bg-white outline-none w-40"
             />
           </div>
 
-          <input
-            onChange={handleChange}
-            type="text"
-            placeholder="PROMO CODE"
-            className="border-3 border-[#FE7F9C] p-2 bg-white rounded-sm outline-none"
-          />
-
-          <button className="bg-[#FE7F9C] hover:scale-105 p-2 rounded text-2xl font-nic cursor-pointer">
+          <button className="p-2 outline-none bg-[#FE7F9C] font-nic text-2xl cursor-pointer mt-4 transition duration-300 hover:scale-105">
             Submit
           </button>
-        </div>
-
-        <div className="w-full md:w-1/2 flex justify-center">
-          <img
-            src="/images/applePie.webp"
-            className="w-80 md:w-md rounded-2xl"
-            alt="Apple Pie"
-          />
         </div>
       </div>
     </form>
