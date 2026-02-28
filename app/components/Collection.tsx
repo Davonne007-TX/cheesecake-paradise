@@ -2,14 +2,14 @@ import Card from "~/components/Card";
 import { useCheesecakeItems } from "~/context/OurCheesecake";
 
 export function Collection() {
-  const { cheesecakeItem, loading, fetchError } = useCheesecakeItems();
+  const { cheesecakeItem } = useCheesecakeItems();
   return (
     <main
       id="collection"
       className="flex flex-col min-h-screen items-center justify-center relative overflow-hidden scroll-mt-40"
     >
       <div className="flex flex-col gap-2 justify-center items-center md:mt-20">
-        <p className="text-[#FE7F9C] text-lg font-serif text-center">
+        <p className="text-[#FE7F9C] text-lg font-serif text-center mt-8">
           OUR COLLECTION
         </p>
 

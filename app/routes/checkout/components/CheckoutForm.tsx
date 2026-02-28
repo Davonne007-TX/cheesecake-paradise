@@ -1,6 +1,8 @@
 import { CakeSlice } from "lucide-react";
 import { useState } from "react";
 
+import { useCart } from "~/context/CartContext";
+
 type FormData = {
   fullName: string;
   address: string;
@@ -10,8 +12,11 @@ type FormData = {
   cvv: string;
   promo: string;
 };
+interface CheckoutFormProps {
+  onOrderPlaced: () => void;
+}
 
-export default function CheckoutForm() {
+export default function CheckoutForm({ onOrderPlaced }: CheckoutFormProps) {
   const [formData, setFormData] = useState<FormData>({
     fullName: "",
     address: "",
@@ -22,6 +27,8 @@ export default function CheckoutForm() {
     promo: "",
   });
 
+  const { clearCart } = useCart();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -29,102 +36,110 @@ export default function CheckoutForm() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const cheesecakeOrderSent = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Order Placed:", formData);
-    alert(
-      "Success, order has been placed. Thank you, see you later, its cheesecake time!",
-    );
+
+    clearCart();
+    onOrderPlaced();
   };
-
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="mt-12 bg-black/70 p-8 max-w-7xl  h-full mx-auto px-8"
-    >
-      <h1
-        className="font-nic text-5xl text-white 
-         flex gap-4 items-center justify-center mt-2"
+    <section className="mt-20">
+      <form
+        onSubmit={cheesecakeOrderSent}
+        className="bg-black/70 p-8  h-full mx-auto px-8 rounded-2xl"
       >
-        <CakeSlice width={30} height={30} />
-        Checkout
-        <CakeSlice width={30} height={30} />
-      </h1>
-      <p className="text-white max-w-sm text-center mx-auto mt-2 text-lg">
-        {" "}
-        And every order comes with a side of apple pie and ice cream on us.
-      </p>
+        <h1
+          className="font-nic text-5xl text-white 
+         flex gap-4 items-center justify-center mt-2"
+        >
+          <CakeSlice width={30} height={30} />
+          Checkout
+          <CakeSlice width={30} height={30} />
+        </h1>
+        <p className="text-white max-w-sm text-center mx-auto mt-2 text-lg">
+          {" "}
+          And every order comes with a side of apple pie and ice cream on us.
+        </p>
 
-      <div className="mt-8 font-serif">
-        <div className="flex flex-col md:flex-row gap-8">
-          <div className="flex flex-col mx-auto gap-4 w-60 md:w-sm">
-            <input
-              type="text"
-              required
-              onChange={handleChange}
-              placeholder="Full Name"
-              className="p-2 bg-white outline-none"
-            />
-            <input
-              required
-              onChange={handleChange}
-              type="address"
-              placeholder="Address"
-              className="p-2 bg-white outline-none"
-            />
+        <div className="mt-8 font-serif">
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="flex flex-col mx-auto gap-4 w-60 md:w-sm">
+              <input
+                type="text"
+                name="fullName"
+                required
+                onChange={handleChange}
+                placeholder="Full Name"
+                className="p-2 bg-white outline-none"
+              />
+              <input
+                required
+                name="address"
+                onChange={handleChange}
+                type="address"
+                placeholder="Address"
+                className="p-2 bg-white outline-none"
+              />
 
-            <input
-              type="email"
-              required
-              onChange={handleChange}
-              placeholder="E-mail Address"
-              className="p-2 bg-white outline-none"
-            />
+              <input
+                type="email"
+                name="email"
+                required
+                onChange={handleChange}
+                placeholder="E-mail Address"
+                className="p-2 bg-white outline-none"
+              />
 
-            <input
-              required
-              onChange={handleChange}
-              type="text"
-              placeholder="Credit Card Number"
-              className="p-2 bg-white outline-none"
-            />
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex gap-2">
+              <input
+                required
+                name="cardNumber"
+                onChange={handleChange}
+                type="text"
+                placeholder="Credit Card Number"
+                className="p-2 bg-white outline-none"
+              />
+              <div className="flex flex-col md:flex-row gap-4">
+                <div className="flex gap-2">
+                  <input
+                    required
+                    name="expiry"
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="expir"
+                    className="p-2 bg-white outline-none w-20"
+                  />
+
+                  <input
+                    required
+                    name="cvv"
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="cvv"
+                    className="p-2 bg-white outline-none w-20"
+                  />
+                </div>
+
                 <input
-                  required
                   onChange={handleChange}
                   type="text"
-                  placeholder="expir"
-                  className="p-2 bg-white outline-none w-20"
-                />
-
-                <input
-                  required
-                  onChange={handleChange}
-                  type="text"
-                  placeholder="cvv"
-                  className="p-2 bg-white outline-none w-20"
+                  name="promo"
+                  placeholder="PROMO CODE"
+                  className="p-2 bg-white outline-none w-40"
                 />
               </div>
 
-              <input
-                onChange={handleChange}
-                type="text"
-                placeholder="PROMO CODE"
-                className="p-2 bg-white outline-none w-40"
-              />
+              <button className="p-2 outline-none rounded-md bg-[#FE7F9C] font-nic text-2xl cursor-pointer mt-4 transition duration-300 hover:scale-105">
+                Submit
+              </button>
             </div>
-
-            <button className="p-2 outline-none rounded-md bg-[#FE7F9C] font-nic text-2xl cursor-pointer mt-4 transition duration-300 hover:scale-105">
-              Submit
-            </button>
+            <img
+              src="./images/applePie.webp"
+              className="w-60 md:w-2xl object-cover h-80 mt-2 mx-auto"
+              alt="Apple Pie, imaged generated by ChatGPT, created by Davonne Vigil"
+            />
           </div>
-          <img
-            src="./images/applePie.webp"
-            className="w-60 md:w-2xl object-cover h-80 mt-2"
-          />
         </div>
-      </div>
-    </form>
+      </form>
+    </section>
   );
 }
