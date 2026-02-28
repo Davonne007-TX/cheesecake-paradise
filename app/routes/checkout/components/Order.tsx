@@ -1,8 +1,9 @@
 import { useCart } from "~/context/CartContext";
 import CheckoutForm from "./CheckoutForm";
-import PickUpLocation from "./PickUpLocation";
+import { useState } from "react";
 
 export default function Order() {
+  const [orderPlaced, setOrderPlaced] = useState(false);
   const { cart, deleteFromCart } = useCart();
 
   const scrollToSection = (sectionId: string) => {
@@ -21,17 +22,20 @@ export default function Order() {
     .toFixed(2);
   return (
     <section className="flex flex-col justify-center items-center w-full ">
-      <h1 className="text-center text-4xl md:text-5xl font-nic mt-20 md:mt-8">
-        Your Cart
-      </h1>
-      <p className="font-thin text-md mx-auto md:text-2xl mt-4 text-center max-w-xs md:max-w-lg">
-        Once order is placed, your order will be ready in 15 minutes for pick
-        up!
-      </p>
-
-      {cart.length === 0 ? (
+      {orderPlaced ? (
+        <div className="flex flex-col justify-center items-center gap-4 mt-20">
+          <h2 className="font-nic text-4xl">Order Confirmed! 🎉</h2>
+          <p className="text-lg text-center max-w-lg">
+            Pick up location: 2318 Sully Lane, Forks, WA 90210
+          </p>
+        </div>
+      ) : cart.length === 0 ? (
         <div className="flex flex-col justify-center items-center gap-4">
-          <p className="text-lg md:text-xl mt-8 font-semibold">
+          <h1 className="text-center text-4xl md:text-5xl font-nic mt-20 md:mt-8">
+            Your Cart
+          </h1>
+
+          <p className="text-lg md:text-xl mt-2 font-semibold">
             Your cheesecake cart is empty.
           </p>
 
@@ -43,23 +47,24 @@ export default function Order() {
           </button>
           <img
             src="./images/drip.webp"
-            className="w-full aspect-4/1 object-cover shadow-xl shadow-[#FE7F9C]/60 mt-10 mb-4"
+            className="w-full aspect-4/1 object-cover shadow-xl shadow-[#FE7F9C]/60 mt-10"
           />
         </div>
       ) : (
-        <section className="w-xs md:w-3xl mb-10">
-          <ul>
+        <section className="w-lg md:w-3xl py-10 ">
+          <h1 className="text-center text-4xl md:text-5xl font-nic md:mt-8">
+            Your Cart
+          </h1>
+          <ul className="bg-white mx-auto p-8 rounded-2xl mt-8 font-dm text-md md:text-xl">
             {cart.map((cheesecake) => (
-              <div className="flex flex-col bg-white mx-auto justify-center items-center p-4 rounded-2xl mt-8 gap-8 font-dm text-md md:text-xl">
-                <div className="flex justify-between gap-20 md:gap-60">
-                  <li key={cheesecake.id}>{cheesecake.name}</li>
+              <div key={cheesecake.id} className="flex flex-col gap-4 mb-6">
+                <div className="flex justify-between">
+                  <span>{cheesecake.name}</span>
                   <div className="flex gap-4">
-                    {" "}
-                    <li>${cheesecake.price}</li>
-                    <li>x {cheesecake.qty}</li>
+                    <span>${cheesecake.price}</span>
+                    <span>x {cheesecake.qty}</span>
                   </div>
                 </div>
-
                 <div className="flex gap-4">
                   <button
                     onClick={() => scrollToSection("collection")}
@@ -69,7 +74,7 @@ export default function Order() {
                   </button>
                   <button
                     onClick={() => deleteFromCart(cheesecake.id)}
-                    className="bg-pink-100 text-red-500/90  hover:scale-105 cursor-pointer rounded-lg p-2"
+                    className="bg-pink-100 text-red-500/90 hover:scale-105 cursor-pointer rounded-lg p-2"
                   >
                     Remove
                   </button>
@@ -90,7 +95,7 @@ export default function Order() {
             </button>
           </div>
 
-          <CheckoutForm />
+          <CheckoutForm onOrderPlaced={() => setOrderPlaced(true)} />
         </section>
       )}
     </section>

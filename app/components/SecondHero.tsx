@@ -19,11 +19,11 @@ export default function SecondHeader() {
 
         <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/30 to-transparent" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <h1 className="font-nic text-3xl md:text-7xl text-white drop-shadow-lg max-w-2xl leading-tight">
+          <h1 className="font-nic text-3xl md:text-7xl font-semibold text-white drop-shadow-lg max-w-2xl leading-tight">
             Get your cheesecake on
           </h1>
 
-          <p className="text-white/90 mt-4 text-lg md:text-2xl max-w-lg">
+          <p className="text-white/90 shadow-xs font-semibold p-2 mt-4 text-lg md:text-2xl max-w-lg">
             Fresh home made cheesecake is what we do best. Get yours today!
           </p>
 

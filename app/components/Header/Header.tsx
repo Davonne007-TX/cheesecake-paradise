@@ -2,6 +2,7 @@ import { ShoppingCart, Menu, X } from "lucide-react";
 import { useCart } from "~/context/CartContext";
 import { useState } from "react";
 import { Link } from "react-router";
+import HeaderLogo from "./HeaderLogo";
 
 interface NavItem {
   id: number;
@@ -43,17 +44,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/70 backdrop-blur-md border-b border-white/10">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 text-white">
-        <Link to="/" className="flex gap-4 items-center">
-          <img
-            src="./images/cake.png"
-            alt="Velvet Goodness Logo"
-            className="w-8"
-          />
-          <h1 className="font-nic text-4xl tracking-wide cursor-pointer">
-            Velvet
-            <span className="text-[#FE7F9C]"> Goodness</span>
-          </h1>
-        </Link>
+        <HeaderLogo />
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex gap-10 text-lg font-medium mr-20">
