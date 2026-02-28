@@ -61,7 +61,7 @@ export default function Header() {
         </ul>
 
         {/* Cart + Mobile Menu */}
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
           <button
             onClick={() => scrollToSection("collection")}
             className="hidden md:block rounded bg-[#FE7F9C] w-24 p-2 text-sm font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
@@ -73,7 +73,7 @@ export default function Header() {
             onClick={() => setShowDropdown(!showDropdown)}
             className="relative text-white/80 hover:text-white transition cursor-pointer"
           >
-            <ShoppingCart className="h-8 w-8" />
+            <ShoppingCart className="h-6 w-6" />
             {itemCount > 0 && (
               <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FE7F9C] text-[10px] flex items-center justify-center">
                 {itemCount}
@@ -139,14 +139,14 @@ export default function Header() {
                   <div className="flex gap-8 justify-center items-center">
                     <button
                       onClick={() => clearCart()}
-                      className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
+                      className="rounded my-4 bg-[#FE7F9C] text-xl font-dm text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
                     >
                       Clear Cart
                     </button>
                     <Link
                       to="/checkout"
                       onClick={() => setShowDropdown(!showDropdown)}
-                      className="rounded my-4 bg-[#FE7F9C] font-nic text-2xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
+                      className="rounded my-4 bg-[#FE7F9C] font-dm text-xl text-black w-80s p-2 mt-8 font-semibold cursor-pointer hover:scale-105 hover:shadow-pink-500/30 active:scale-95"
                     >
                       Checkout
                     </Link>
@@ -161,7 +161,7 @@ export default function Header() {
             onClick={() => setMobileNavOpen(!mobileNavOpen)}
             className="lg:hidden focus:outline-none cursor-pointer"
           >
-            {mobileNavOpen ? <X size={28} /> : <Menu size={28} />}
+            {mobileNavOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>

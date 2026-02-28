@@ -3,8 +3,9 @@ import CheckoutForm from "./CheckoutForm";
 import { useState } from "react";
 
 export default function Order() {
-  const [orderPlaced, setOrderPlaced] = useState(false);
   const { cart, deleteFromCart } = useCart();
+  const [orderedItems, setOrderItems] = useState(cart);
+  const [orderPlaced, setOrderPlaced] = useState(false);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -17,17 +18,41 @@ export default function Order() {
   };
 
   // Total price
-  const total = cart
+  const orderTotal = orderedItems
     .reduce((acc, product) => acc + product.price * product.qty, 0)
     .toFixed(2);
+
   return (
-    <section className="flex flex-col justify-center items-center w-full ">
+    <section className="flex flex-col justify-center items-center py-10">
       {orderPlaced ? (
-        <div className="flex flex-col justify-center items-center gap-4 mt-20">
-          <h2 className="font-nic text-4xl">Order Confirmed! 🎉</h2>
-          <p className="text-lg text-center max-w-lg">
-            Pick up location: 2318 Sully Lane, Forks, WA 90210
+        <div className="flex flex-col justify-center items-center gap-4 ">
+          <h2 className="font-nic text-4xl md:text-5xl md:mt-4">
+            Order is Confirmed!
+          </h2>
+          <p className="text-lg md:text-xl text-center max-w-xs md:max-w-2xl">
+            Pick up location: 2318 Sully Lane, Forks, WA 90210 in 15 minutes
           </p>
+
+          <ul className="mt-4 bg-white rounded-bl-2xl rounded-br-2xl p-2 md:p-10 shadow-lg shadow-[#FE7F9C] mx-auto">
+            {orderedItems.map((item) => (
+              <div
+                key={item.id}
+                className=" flex flex-col justify-center items-center gap-4  p-8 rounded-2xl font-dm text-md md:text-xl mx-auto"
+              >
+                <li className="text-xl">
+                  {item.name} x {item.qty} — $
+                  {(item.price * item.qty).toFixed(2)}
+                </li>
+                <img
+                  src={item.image}
+                  className="max-w-xs md:max-w-sm rounded-xl"
+                />
+              </div>
+            ))}
+            <p className="font-bold text-xl mt-4 text-center">
+              Total: ${orderTotal}
+            </p>
+          </ul>
         </div>
       ) : cart.length === 0 ? (
         <div className="flex flex-col justify-center items-center gap-4">
@@ -51,13 +76,16 @@ export default function Order() {
           />
         </div>
       ) : (
-        <section className="w-lg md:w-3xl py-10 ">
-          <h1 className="text-center text-4xl md:text-5xl font-nic md:mt-8">
+        <section className="w-xs md:w-3xl py-10 ">
+          <h1 className="text-center text-4xl md:text-5xl font-nic mt-4 md:mt-8">
             Your Cart
           </h1>
-          <ul className="bg-white mx-auto p-8 rounded-2xl mt-8 font-dm text-md md:text-xl">
+          <ul className="mx-auto mt-8 font-dm text-md md:text-xl">
             {cart.map((cheesecake) => (
-              <div key={cheesecake.id} className="flex flex-col gap-4 mb-6">
+              <li
+                key={cheesecake.id}
+                className="flex flex-col gap-4 mb-6 bg-white p-8 rounded-2xl   "
+              >
                 <div className="flex justify-between">
                   <span>{cheesecake.name}</span>
                   <div className="flex gap-4">
@@ -79,13 +107,13 @@ export default function Order() {
                     Remove
                   </button>
                 </div>
-              </div>
+              </li>
             ))}
           </ul>
 
           <div className="flex flex-col md:flex-row justify-center items-center mt-10 md:gap-10 ">
             <button className="font-bold cursor-pointer text-black text-lg md:text-2xl p-2 rounded-lg">
-              Total:${total}
+              Total:${orderTotal}
             </button>
             <button
               onClick={() => scrollToSection("collection")}
@@ -95,7 +123,14 @@ export default function Order() {
             </button>
           </div>
 
-          <CheckoutForm onOrderPlaced={() => setOrderPlaced(true)} />
+          <div>
+            <CheckoutForm
+              onOrderPlaced={() => {
+                setOrderItems(cart);
+                setOrderPlaced(true);
+              }}
+            />
+          </div>
         </section>
       )}
     </section>
