@@ -73,7 +73,7 @@ export default function Header() {
             onClick={() => setShowDropdown(!showDropdown)}
             className="relative text-white/80 hover:text-white transition cursor-pointer"
           >
-            <ShoppingCart className="h-6 w-6" />
+            <ShoppingCart className="h-8 w-8" />
             {itemCount > 0 && (
               <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FE7F9C] text-[10px] flex items-center justify-center">
                 {itemCount}
@@ -122,7 +122,7 @@ export default function Header() {
                               {product.qty} × ${product.price.toFixed(2)}
                             </span>
                           </div>
-                          <img src={product.image} className="w-40 ml-4 " />
+                          {/* <img src={product.image} className="w-40 ml-4 " /> */}
                         </div>
 
                         <button
