@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from "react";
 
 type Product = {
   id: string;
@@ -21,8 +27,16 @@ const CartContext = createContext<{
 } | null>(null);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    if (typeof window === "undefined") return [];
+    const saved = localStorage.getItem("cart");
+    return saved ? JSON.parse(saved) : [];
+  });
 
+  //local storage
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  });
   const addToCart = (cheesecakeProduct: Product) => {
     setCart((prev) => {
       const isCheesecakeAlreadyThere = prev.find(
