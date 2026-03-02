@@ -21,22 +21,30 @@ type CartItem = Product & {
 };
 const CartContext = createContext<{
   cart: CartItem[];
+  mounted: boolean;
   addToCart: (product: Product) => void;
   deleteFromCart: (id: string) => void;
   clearCart: () => void;
 } | null>(null);
 
 export function CartProvider({ children }: { children: ReactNode }) {
+  const [mounted, setMounted] = useState(false);
   const [cart, setCart] = useState<CartItem[]>(() => {
     if (typeof window === "undefined") return [];
     const saved = localStorage.getItem("cart");
     return saved ? JSON.parse(saved) : [];
   });
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   //local storage
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cart));
-  });
+    if (mounted) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart, mounted]);
   const addToCart = (cheesecakeProduct: Product) => {
     setCart((prev) => {
       const isCheesecakeAlreadyThere = prev.find(
@@ -64,7 +72,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, deleteFromCart, clearCart }}
+      value={{ mounted, cart, addToCart, deleteFromCart, clearCart }}
     >
       {children}
     </CartContext.Provider>

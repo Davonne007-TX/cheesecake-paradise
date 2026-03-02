@@ -14,7 +14,7 @@ export default function Header() {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  const { cart, deleteFromCart, clearCart } = useCart();
+  const { mounted, cart, deleteFromCart, clearCart } = useCart();
 
   // Total items in cart (for badge)
   const itemCount = cart.reduce((acc, product) => acc + product.qty, 0);
@@ -74,7 +74,7 @@ export default function Header() {
             className="relative text-white/80 hover:text-white transition cursor-pointer"
           >
             <ShoppingCart className="h-8 w-8" />
-            {itemCount > 0 && (
+            {mounted && itemCount > 0 && (
               <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-[#FE7F9C] text-[10px] flex items-center justify-center">
                 {itemCount}
               </span>
