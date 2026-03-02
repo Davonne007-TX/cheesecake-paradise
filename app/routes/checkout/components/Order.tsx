@@ -51,52 +51,58 @@ export default function Order() {
           />
         </div>
       ) : (
-        <section className="w-lg md:w-3xl py-10 ">
+        <>
           <h1 className="text-center text-4xl md:text-5xl font-nic md:mt-8">
             Your Cart
           </h1>
-          <ul className="bg-white mx-auto p-8 rounded-2xl mt-8 font-dm text-md md:text-xl">
-            {cart.map((cheesecake) => (
-              <div key={cheesecake.id} className="flex flex-col gap-4 mb-6">
-                <div className="flex justify-between">
-                  <span>{cheesecake.name}</span>
+          <section className="flex flex-col md:flex-row gap-20">
+            <ul className=" mx-auto  w-80 md:w-110 h-full flex flex-col gap-8 mt-8 font-dm text-md md:text-xl max-w-4xl">
+              {cart.map((cheesecake) => (
+                <div
+                  key={cheesecake.id}
+                  className="flex flex-col gap-4 w-full bg-white p-6 md:p-4 rounded-2xl "
+                >
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <img src={cheesecake.image} className="w-40 md:w-30" />
+                    <span>{cheesecake.name}</span>
+                    <div className="flex gap-4">
+                      <span>${cheesecake.price} each</span>
+                      <span>x {cheesecake.qty}</span>
+                    </div>
+                  </div>
                   <div className="flex gap-4">
-                    <span>${cheesecake.price}</span>
-                    <span>x {cheesecake.qty}</span>
+                    <button
+                      onClick={() => scrollToSection("collection")}
+                      className="outline-1 p-2 rounded-lg cursor-pointer hover:scale-105"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => deleteFromCart(cheesecake.id)}
+                      className="bg-pink-100 text-red-500/90 hover:scale-105 cursor-pointer rounded-lg p-2"
+                    >
+                      Remove
+                    </button>
                   </div>
                 </div>
-                <div className="flex gap-4">
-                  <button
-                    onClick={() => scrollToSection("collection")}
-                    className="outline-1 p-2 rounded-lg cursor-pointer hover:scale-105"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    onClick={() => deleteFromCart(cheesecake.id)}
-                    className="bg-pink-100 text-red-500/90 hover:scale-105 cursor-pointer rounded-lg p-2"
-                  >
-                    Remove
-                  </button>
-                </div>
-              </div>
-            ))}
-          </ul>
+              ))}
+              <button
+                onClick={() => scrollToSection("collection")}
+                className="bg-black/70 cursor-pointer w-60 mx-auto  hover:scale-105 text-white p-2 rounded-lg"
+              >
+                Add more items
+              </button>
+            </ul>
 
-          <div className="flex flex-col md:flex-row justify-center items-center mt-10 md:gap-10 ">
-            <button className="font-bold cursor-pointer text-black text-lg md:text-2xl p-2 rounded-lg">
-              Total:${total}
-            </button>
-            <button
-              onClick={() => scrollToSection("collection")}
-              className="bg-black/70 cursor-pointer  hover:scale-105 text-white p-2 rounded-lg"
-            >
-              Add more items
-            </button>
-          </div>
+            <div className="flex flex-col gap-4 md:mt-4">
+              <button className="font-bold cursor-pointer text-black text-lg md:text-xl p-2 rounded-lg">
+                Total:${total}
+              </button>
 
-          <CheckoutForm onOrderPlaced={() => setOrderPlaced(true)} />
-        </section>
+              <CheckoutForm onOrderPlaced={() => setOrderPlaced(true)} />
+            </div>
+          </section>
+        </>
       )}
     </section>
   );

@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, type ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  type ReactNode,
+} from "react";
 
 type Product = {
   id: string;
@@ -15,14 +21,30 @@ type CartItem = Product & {
 };
 const CartContext = createContext<{
   cart: CartItem[];
+  mounted: boolean;
   addToCart: (product: Product) => void;
   deleteFromCart: (id: string) => void;
   clearCart: () => void;
 } | null>(null);
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cart, setCart] = useState<CartItem[]>([]);
+  const [mounted, setMounted] = useState(false);
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    if (typeof window === "undefined") return [];
+    const saved = localStorage.getItem("cart");
+    return saved ? JSON.parse(saved) : [];
+  });
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  //local storage
+  useEffect(() => {
+    if (mounted) {
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+  }, [cart, mounted]);
   const addToCart = (cheesecakeProduct: Product) => {
     setCart((prev) => {
       const isCheesecakeAlreadyThere = prev.find(
@@ -50,7 +72,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   };
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, deleteFromCart, clearCart }}
+      value={{ mounted, cart, addToCart, deleteFromCart, clearCart }}
     >
       {children}
     </CartContext.Provider>
