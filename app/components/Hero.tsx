@@ -2,7 +2,10 @@ import { Star } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="mt-38 md:mt-36 text-center flex flex-col gap-4">
+    <section
+      id="home"
+      className="mt-38 md:mt-36 text-center flex flex-col gap-4"
+    >
       <div className="relative mx-auto w-70 h-70 md:w-72 md:h-72">
         <div className="absolute inset-0 flex items-center justify-center z-0 mt-104">
           <div className="absolute text-[26vw] md:text-[18vw] font-bold font-dm tracking-wide text-gray-400/20">
