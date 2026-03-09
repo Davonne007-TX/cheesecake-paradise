@@ -140,3 +140,20 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #fe7f9c rgba(255, 255, 255, 0.05);
 }
+
+.shake {
+  display: inline-block;
+  animation: tiltAnimation 4s infinite;
+}
+
+@keyframes tiltAnimation {
+  0% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}

@@ -1,6 +1,7 @@
 import { useCart } from "~/context/CartContext";
 import CheckoutForm from "./CheckoutForm";
 import { useState } from "react";
+import PickUpLocation from "./PickUpLocation";
 
 export default function Order() {
   const [orderPlaced, setOrderPlaced] = useState(false);
@@ -23,18 +24,7 @@ export default function Order() {
   return (
     <section className="flex flex-col justify-center items-center w-full ">
       {orderPlaced ? (
-        <div className="flex flex-col justify-center items-center gap-4 my-20">
-          <h2 className="font-nic text-4xl">Order Confirmed! 🎉</h2>
-          <p className="text-lg text-center max-w-md">
-            Pick up location: 2319 Sully Lane, Forks, WA 90210 in 15 minutes
-          </p>
-
-          <img
-            src="./images/applePie.webp"
-            alt="Apple Pie and Ice Cream"
-            className="w-90 h-90 object-cover"
-          />
-        </div>
+        <PickUpLocation />
       ) : cart.length === 0 ? (
         <div className="flex flex-col justify-center items-center gap-4">
           <h1 className="text-center text-4xl md:text-5xl font-nic mt-20 md:mt-8">
