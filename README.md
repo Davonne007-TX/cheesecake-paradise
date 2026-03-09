@@ -1,17 +1,15 @@
 # 🍰 Velvet Goodness Cheesecake
 
-A modern, responsive React + Tailwind CSS landing page for a cheesecake brand. This project focuses on clean UI, strong visual hierarchy, and a polished hero section featuring product imagery with overlay badges for rating, pricing, and more.
+Lets design and code a cheesecake website for a cheesecake restaurant! Building a modern, responsive React + Tailwind CSS landing page to focus on building skill set when it comes to React/JS fundamentals, and TypeScript. While also focusing on building a clean UI, for the ultimate user experience.
 
 ✨ Features
 
-⚛️ Built with React
+⚛️ Built with React, json-server
 
-🎨 Styled using Tailwind CSS
+🎨 Styled using Tailwind CSS, motion.dev
 
 📱 Fully responsive design
 
-🔥 Clean, modern, and brand-forward UI
+🔥 Clean, modern
 
-🧩 Reusable component structure
-
-Building in progress...
+🔥 Check out process
