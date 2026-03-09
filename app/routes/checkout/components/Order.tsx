@@ -1,6 +1,7 @@
 import { useCart } from "~/context/CartContext";
 import CheckoutForm from "./CheckoutForm";
 import { useState } from "react";
+import PickUpLocation from "./PickUpLocation";
 
 export default function Order() {
   const [orderPlaced, setOrderPlaced] = useState(false);
@@ -23,12 +24,7 @@ export default function Order() {
   return (
     <section className="flex flex-col justify-center items-center w-full ">
       {orderPlaced ? (
-        <div className="flex flex-col justify-center items-center gap-4 mt-20">
-          <h2 className="font-nic text-4xl">Order Confirmed! 🎉</h2>
-          <p className="text-lg text-center max-w-lg">
-            Pick up location: 2318 Sully Lane, Forks, WA 90210
-          </p>
-        </div>
+        <PickUpLocation />
       ) : cart.length === 0 ? (
         <div className="flex flex-col justify-center items-center gap-4">
           <h1 className="text-center text-4xl md:text-5xl font-nic mt-20 md:mt-8">
@@ -55,7 +51,7 @@ export default function Order() {
           <h1 className="text-center text-4xl md:text-5xl font-nic md:mt-8">
             Your Cart
           </h1>
-          <section className="flex flex-col md:flex-row gap-20">
+          <section className="flex flex-col md:flex-row gap-20 my-10">
             <ul className=" mx-auto  w-80 md:w-110 h-full flex flex-col gap-8 mt-8 font-dm text-md md:text-xl max-w-4xl">
               {cart.map((cheesecake) => (
                 <div
