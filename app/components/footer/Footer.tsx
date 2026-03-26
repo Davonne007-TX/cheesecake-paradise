@@ -12,7 +12,7 @@ import TermsOfService from "./TermsOfService";
 
 export default function () {
   const ourInfo = [
-    { name: "2318 Sully Lane, Forks WA 90210", icon: MapPinned, id: 0 },
+    { name: "2319 Sully Lane, Forks WA 90210", icon: MapPinned, id: 0 },
     { name: "987-654-321", icon: PhoneCall, id: 1 },
     { name: "velvetGoodness@aol.com", icon: Mail, id: 2 },
   ];

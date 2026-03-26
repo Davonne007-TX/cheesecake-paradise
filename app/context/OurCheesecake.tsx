@@ -7,7 +7,7 @@ import {
 } from "react";
 
 const CheesecakeContext = createContext<
-  | {
+  | { 
       cheesecakeItem: any[];
       loading: boolean;
       fetchError: string | null;
