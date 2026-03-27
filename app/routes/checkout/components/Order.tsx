@@ -12,29 +12,26 @@ export default function Order() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     } else {
-      // If element doesn't exist on current page, navigate to home and scroll
       window.location.href = `/#${sectionId}`;
     }
   };
 
-  // Total price
   const total = cart
     .reduce((acc, product) => acc + product.price * product.qty, 0)
     .toFixed(2);
+
   return (
-    <section className="flex flex-col justify-center items-center w-full ">
+    <section className="flex flex-col justify-center items-center w-full">
       {orderPlaced ? (
         <PickUpLocation />
       ) : cart.length === 0 ? (
         <div className="flex flex-col justify-center items-center gap-4">
-          <h1 className="text-center text-4xl md:text-5xl font-nic mt-20 md:mt-8">
+          <h1 className="text-center text-4xl md:text-5xl font-nic mt-20 ">
             Your Cart
           </h1>
-
           <p className="text-lg md:text-xl mt-2 font-semibold">
             Your cheesecake cart is empty.
           </p>
-
           <button
             className="bg-[#FE7F9C] p-2 font-dm rounded hover:scale-105 cursor-pointer md:text-xl"
             onClick={() => scrollToSection("collection")}
@@ -47,16 +44,18 @@ export default function Order() {
           />
         </div>
       ) : (
-        <>
-          <h1 className="text-center text-4xl md:text-5xl font-nic md:mt-8">
+        <section>
+          <h1 className="text-center text-4xl md:text-5xl font-nic pt-8">
             Your Cart
           </h1>
-          <section className="flex flex-col md:flex-row gap-20 my-10">
-            <ul className=" mx-auto  w-80 md:w-110 h-full flex flex-col gap-8 mt-8 font-dm text-md md:text-xl max-w-4xl">
+
+          <section className="flex flex-col md:flex-row justify-center items-start gap-8 my-10 px-4">
+            {/* Cart list */}
+            <ul className="w-80 md:w-110 flex flex-col gap-8 mt-8 font-dm text-md md:text-xl">
               {cart.map((cheesecake) => (
                 <div
                   key={cheesecake.id}
-                  className="flex flex-col gap-4 w-full bg-white p-6 md:p-4 rounded-2xl "
+                  className="flex flex-col gap-4 w-full bg-white p-6 md:p-4 rounded-2xl"
                 >
                   <div className="flex flex-col md:flex-row gap-4">
                     <img src={cheesecake.image} className="w-40 md:w-30" />
@@ -84,21 +83,20 @@ export default function Order() {
               ))}
               <button
                 onClick={() => scrollToSection("collection")}
-                className="bg-black/70 cursor-pointer w-60 mx-auto  hover:scale-105 text-white p-2 rounded-lg"
+                className="bg-black/70 cursor-pointer w-60 mx-auto hover:scale-105 text-white p-2 rounded-lg"
               >
                 Add more items
               </button>
             </ul>
 
-            <div className="flex flex-col gap-4 md:mt-4">
+            <div className="flex flex-col gap-4 mt-8 self-start sticky top-8">
               <button className="font-bold cursor-pointer text-black text-lg md:text-xl p-2 rounded-lg">
-                Total:${total}
+                Total: ${total}
               </button>
-
               <CheckoutForm onOrderPlaced={() => setOrderPlaced(true)} />
             </div>
           </section>
-        </>
+        </section>
       )}
     </section>
   );

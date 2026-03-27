@@ -84,7 +84,7 @@ export default function Header() {
           {/* Cart Dropdown */}
           {showDropdown && (
             <section
-              className="absolute top-24 sm:top-16 mt-2 md:mt-0 md:top-28 lg:top-18  right-0 w-96 md:w-96 max-h-[74vh] overflow-y-auto 
+              className="absolute top-15 sm:top-16 mt-2 md:mt-0 md:top-28 lg:top-18  right-0 w-96 md:w-96 max-h-[74vh] overflow-y-auto 
               bg-[#181818] backdrop-blur-xl p-12 text-white text-center md:rounded-bl-3xl border-white/10 cart-scroll
            z-50 animate-in fade-in slide-in-from-top-4 duration-300 "
             >

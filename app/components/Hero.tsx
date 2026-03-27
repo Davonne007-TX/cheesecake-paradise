@@ -56,8 +56,8 @@ export default function Hero() {
       </div>
 
       <div className="flex gap-8 justify-center items-center my-10">
-        {cheesecakeImage.map((cake: { image: string }) => (
-          <img key={cake.image} src={cake.image} />
+        {cheesecakeImage.map((cake: { image: string }, id) => (
+          <img key={id} src={cake.image} />
         ))}
       </div>
     </section>

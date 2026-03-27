@@ -43,10 +43,10 @@ export default function CheckoutForm({ onOrderPlaced }: CheckoutFormProps) {
     onOrderPlaced();
   };
   return (
-    <section className=" max-w-2xs mx-auto">
+    <section className=" max-w-2xs">
       <form
         onSubmit={cheesecakeOrderSent}
-        className="bg-black/70 p-6 max-w-md mx-auto px-8 rounded-2xl"
+        className="bg-black/70 p-6 max-w-md  px-8 rounded-2xl"
       >
         <h1
           className="font-nic text-4xl text-white 
