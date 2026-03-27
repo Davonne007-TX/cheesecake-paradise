@@ -11,11 +11,11 @@
   --font-dm: "DM Serif Text", serif;
 }
 
-html,
+/* html,
 body {
   background-color: antiquewhite;
   background: linear-gradient(135deg, #fbeee6, #f7d9e3);
-}
+} */
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);

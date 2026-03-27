@@ -36,7 +36,8 @@ export default function OurStory() {
   return (
     <section
       id="story"
-      className="mt-40 bg-white min-h-screen mx-auto flex flex-col justify-center items-center"
+      className="bg-white/20
+      0 min-h-screen mx-auto flex flex-col justify-center items-center"
     >
       <motion.div
         initial={{ opacity: 0, y: 50 }}

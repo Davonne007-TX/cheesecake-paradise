@@ -1,12 +1,15 @@
 import { Star } from "lucide-react";
 
 export default function Hero() {
+  const cheesecakeImage = [
+    { image: "./images/cake.webp" },
+    { image: "./images/cake.webp" },
+    { image: "./images/cake.webp" },
+    { image: "./images/cake.webp" },
+  ];
   return (
-    <section
-      id="home"
-      className="mt-38 md:mt-36 text-center flex flex-col gap-4"
-    >
-      <div className="relative mx-auto w-70 h-70 md:w-72 md:h-72">
+    <section id="home" className="text-center flex flex-col gap-4 bg-[#FAEBD7]">
+      <div className="relative mx-auto w-70 h-70 md:w-72 md:h-72 mt-38 md:mt-36 ">
         <div className="absolute inset-0 flex items-center justify-center z-0 mt-104">
           <div className="absolute text-[26vw] md:text-[18vw] font-bold font-dm tracking-wide text-gray-400/20">
             Mmmm
@@ -48,8 +51,14 @@ export default function Hero() {
           View Full Menu
         </button>
       </div>
-      <div className="flex justify-center my-10">
-        <div className="h-0.5 w-60 md:w-4xl  cursor-pointer bg-[#FE7F9C]/20"></div>
+      <div className="flex justify-center mt-4">
+        <div className="h-0.5 w-60 md:w-4xl cursor-pointer bg-[#FE7F9C]/20"></div>
+      </div>
+
+      <div className="flex gap-8 justify-center items-center my-10">
+        {cheesecakeImage.map((cake: { image: string }) => (
+          <img key={cake.image} src={cake.image} />
+        ))}
       </div>
     </section>
   );

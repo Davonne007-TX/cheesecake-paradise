@@ -6,9 +6,9 @@ export function Collection() {
   return (
     <main
       id="collection"
-      className="flex flex-col min-h-screen items-center justify-center relative overflow-hidden scroll-mt-40"
+      className="flex flex-col min-h-screen items-center justify-center relative overflow-hidden scroll-mt-40 bg-[#FAEBD7] py-20"
     >
-      <div className="flex flex-col gap-2 justify-center items-center md:mt-20">
+      <div className="flex flex-col gap-2 justify-center items-center">
         <p className="text-[#FE7F9C] text-lg font-serif text-center mt-8">
           OUR COLLECTION
         </p>
